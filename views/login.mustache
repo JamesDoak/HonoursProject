@@ -1,0 +1,65 @@
+<html>
+<head>
+{{>header}}
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+<div class="wrapper" >
+		<br>
+		<div class="contactDiv">
+			<br>
+                    <h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;"><i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;{{title}}
+                        <br>
+                    </h2>
+			<br>
+		</div>
+        <br>
+
+		<div class="contactDiv">
+			<br>
+			<div class="innerDiv" align="center" style="width:60vw">
+			<br/><br/>
+				<form name="myForm" method="post" action="/login">
+                        {{! <i class="fa fa-user-circle-o" style="font-size:92px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);border-radius: 50px;";></i>
+                        <br /><br /> }}
+						<label style="float:left" for="email">Email Address</label><br>
+						<input style="color:black;" type="email" minlength="1" maxlength="50" id="username" name="username" placeholder="Please enter your Email Address." required>	
+							<br>
+						<label style="float:left" for="password">Password</label><br>
+						<input style="color:black;" type="password" minlength="1" maxlength="20" id="password" name="password" placeholder="Please enter your Password." required> 
+							 <br><br>
+                            
+							{{^user}}
+								<input name="resetButton" id="clearButton" type="reset" style="width:150px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Reset">
+								<input name="submitButton" id="sub_btn" type="Submit" style="width:150px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Login">
+							{{/user}}
+							{{#user}}
+								<a href="/logout"><input name="submitButton" id="sub_btn" type="Submit" style="width:150px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Logout"></a>
+							{{/user}}
+
+						<br>
+				</form>
+                <br>
+						{{^user}}
+                        <h3> Dont have an account? </h3>
+						<!--<a href="/register">Register Here</a> place inside the H3 -->
+														<!-- Trigger/Open The Modal -->
+								<a href="/register"><button type="btnReg" style="width: 150px" id="rgModalBtn">Register Here</button></a> <br />
+						{{/user}}
+			</div><br />
+		</div>
+
+		<br><br><br><br><br>
+
+    <footer>
+        {{>footer}}
+		{{! <script src="registerModal.js"></script> }}
+    </footer>
+</div>
+	
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+
+<html>
+<head>
+{{>header}}
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+<div class="wrapper" >
+		<br>
+		<div class="contactDiv">
+			<br>
+                    <h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;">Edit Plan
+                        <br>
+                    </h2>
+			<br>
+		</div>
+        <br />
+
+		<div class="contactDiv">
+			<br>
+			<div class="innerDiv" align="center">
+			<br>
+				<form name="myForm" method="post" onsubmit="return validateForm()">
+
+						{{#entries}}
+							<label for="user" >User</label><br />
+							<input id="name" name="user" value="{{user}}" type="text" style="text-align:center;" disabled></td>
+
+							<label style="text-align:left" for="start">Date Entered</label><br />
+							<input id="DateEntered" name="date" value="{{Date}}" style="text-align:center;" type="text" disabled></td>
+
+							<label style="text-align:left" for="pName">Plan</label><br/>
+							<input id="pName" name="pName" value="{{planName}}" style="text-align:center;" type="text" disabled></td>
+
+						<table style="width: 100%; border:0;">
+								<tbody>
+									<tr>
+										<td width="70%" style="text-align:left; height:25px;color:white">Exercise</td>
+										<td width="30%"style="text-align:center; height:25px;color:white" colspan="2">Total</td>
+									</tr>
+									<tr>
+										<td><select type="text" id="ex1" name="ex1" required><option>{{#goals}}{{exerciseType1}}{{/goals}}</option></select> <br /></td>
+										<td width="94%"><input id="n1" name="n1" value="{{#goals}}{{repsOrKM1}}{{/goals}}" type="text" minlength="1" maxlength="3" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')" required></input></td>
+										<td width="5%" style="text-align:center"><input type="button" onclick="incrementValue()" value="+1" 
+										style="padding-left:0px; padding-top:0px; padding-right:0px; padding-bottom:0px;height:40px;width:40px;text-align:center;" /></td>
+									</tr>
+								</tbody>
+						</table>
+
+						<table style="width: 100%;border:0;">
+								<tbody>
+									<tr>
+										<td width="70%" style="text-align:left; height:25px;color:white">Exercise</td>
+										<td width="30%"style="text-align:center; height:25px;color:white" colspan="2">Total</td>
+									</tr>
+									<tr>
+										<td><select type="text" id="ex2" name="ex2" required><option>{{#goals}}{{exerciseType2}}{{/goals}}</option></select> <br /></td>
+										<td width="94%"><input id="n2" name="n2" value="{{#goals}}{{repsOrKM2}}{{/goals}}" type="text" minlength="1" maxlength="3" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')" required></input></td>
+										<td width="5%" style="text-align:center"><input type="button" onclick="incrementValue2()" value="+1" 
+										style="padding-left:0px; padding-top:0px; padding-right:0px; padding-bottom:0px;height:40px;width:40px;text-align:center;" /></td>
+									</tr>
+								</tbody>
+						</table>
+
+						<table style="width: 100%;border:0;">
+								<tbody>
+									<tr>
+										<td width="70%" style="text-align:left; height:25px;color:white">Exercise</td>
+										<td width="30%"style="text-align:center; height:25px;color:white" colspan="2">Total</td>
+									</tr>
+									<tr>
+										<td><select type="text" id="ex3" name="ex3" required><option>{{#goals}}{{exerciseType3}}{{/goals}}</option></select> <br /></td>
+										<td width="94%"><input id="n3" name="n3" value="{{#goals}}{{repsOrKM3}}{{/goals}}" type="text" minlength="1" maxlength="3" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')" required></input></td>
+										<td width="5%" style="text-align:center"><input type="button" onclick="incrementValue3()" value="+1" 
+										style="padding-left:0px; padding-top:0px; padding-right:0px; padding-bottom:0px;height:40px;width:40px;text-align:center;" /></td>
+									</tr>
+								</tbody>
+						</table> <br/>
+
+						
+						<input name="reset" id="btn" type="reset" style="width:250px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Reset">
+						    	<form method="get" action="/edit_goal/{{_id}}">
+										<button type="submit" id="regBtn" style="width:250px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                      	Edit Goal </button> <!-- on click should run register(); -->
+								</form>
+						{{/entries}}
+
+						<br><br>
+				</form>
+                <br />
+			</div>
+		</div>
+
+		<br><br><br><br><br>
+
+
+    <footer>
+        {{>footer}}
+		
+		<script src="/edit_goal_functions.js"></script>
+    </footer>
+</div>
+	
+
+
+</body>
+</html>
+
+
+
+

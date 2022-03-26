@@ -1,0 +1,56 @@
+<html>
+<head>
+{{>header}}
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+<div class="wrapper" >
+		<br>
+		<div class="contactDiv">
+			<br>
+                    <h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;">{{title}}
+                        <br>
+                    </h2>
+			<br>
+		</div>
+        <br>
+
+		<div class="contactDiv">
+			<br>
+			<div class="innerDiv" align="center" style="width:50vw">
+			<br>
+				<form name="myForm" method="post" role="/register" onsubmit="return validateForm()">
+							<h2>Thank you for registering a new account with</h2><br />
+							<h1>O<i class="fa fa-heartbeat"></i>KY</h1>
+
+							<div style="text-align:center;"> {{user-name-error}} </div>
+								<br /><br />
+							{{! <label style="float:left" for="fname">Full Name</label><br>
+							<input style="color:black;" type="text" minlength="1" maxlength="40" id="fname" name="fname" placeholder="Please enter your Full Name." required>	
+								<br> }}
+							<label style="float:left" for="username">Email Address</label><br>
+							<input style="color:black;" type="email" minlength="1" maxlength="50" id="username" name="username" placeholder="Please enter your Email Address." required>	
+								<br>
+							<label style="float:left" for="password">Password</label><br>
+							<input style="color:black;" type="password" minlength="8" maxlength="20" id="pass" name="pass" placeholder="Please enter your Password (8 characters minimum)" required> 
+								<br><br/>
+                            <input name="btn" id="btn" type="reset" style="width:150px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Reset">
+                            <input name="btn2" id="btn2" type="Submit" style="width:150px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Register">
+				</form>
+                <br />
+			</div><br /><br/>
+		</div>
+
+		<br><br><br><br><br>
+
+    <footer>
+        {{>footer}}
+    </footer>
+</div>
+	
+
+
+</body>
+</html>

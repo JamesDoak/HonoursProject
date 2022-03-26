@@ -1,0 +1,130 @@
+
+<html>
+<head>
+{{>header}}
+
+
+
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+
+<!--
+				THIS PAGE NEEDS FIXED - Make it like edit goal
+
+											----->
+
+
+
+<div class="wrapper" >
+		<br>
+		<div class="contactDiv">
+			<br>
+                    <h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;">Add a new weekly Plan
+                        <br>
+                    </h2>
+			<br>
+		</div>
+        <br />
+
+		<div class="contactDiv">
+			<br>
+			<div class="innerDiv" align="center">
+			<br>
+			<br/>
+
+				<form name="myForm" method="post" onsubmit="return validateForm()">
+
+						<label for="username"><h2>Adding a new plan for {{user}}</h2></label><br/><br/>
+
+
+						<label for="start">Plan Completion Date</label><br />
+						<input type="date" id="start" name="trip_start"
+						value=""
+							min='01-01-2021' max="31-12-2022" required>
+						<br /> 
+
+						<label for="pName">Please enter a name for your plan</label>
+						<input type="text" id="pName" name="pName" maxlength="10" placeholder="Enter a keyword for your plan (8 chars in total)" required>
+						
+						{{! <label for="first">Exercise Type</label><br>
+						<select type="text" id="ex1" name="ex1" required></select>
+							<br /> }}
+						<br/><br/>			<h3>Each plan requires a minimum of three goals</h3> <br/>
+						<table style="width: 100%;border:0">
+								<tbody>
+									<tr>
+										<td width="70%" style="text-align:left; height:25px;color:white">Exercise</td>
+										<td width="30%"style="text-align:center; height:25px;color:white" colspan="2">Total</td>
+									</tr>
+									<tr>
+										<td><select type="text" id="ex1" name="ex1" required></select> <br /></td>
+										<td width="94%"><input id="n1" name="n1" type="text" minlength="1" maxlength="3" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')" required></input></td>
+										<td width="5%" style="text-align:right"><input type="button" onclick="incrementValue()" value="+1" 
+										style="padding-left:0px; padding-top:0px; padding-right:0px; padding-bottom:0px;height:40px;width:40px;text-align:center;" /></td>
+									</tr>
+								</tbody>
+						</table>
+
+						<table style="width: 100%;border:0">
+								<tbody>
+									<tr>
+										<td width="70%" style="text-align:left; height:25px;color:white">Exercise</td>
+										<td width="30%"style="text-align:center; height:25px;color:white" colspan="2">Total</td>
+									</tr>
+									<tr>
+										<td><select type="text" id="ex2" name="ex2" required></select> <br /></td>
+										<td width="94%"><input id="n2" name="n2" type="text" minlength="1" maxlength="3" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')" required></input></td>
+										<td width="5%" style="text-align:right"><input type="button" onclick="incrementValue2()" value="+1" 
+										style="padding-left:0px; padding-top:0px; padding-right:0px; padding-bottom:0px;height:40px;width:40px;text-align:center;" /></td>
+									</tr>
+								</tbody>
+						</table>
+
+						<table style="width: 100%;border:0">
+								<tbody>
+									<tr>
+										<td width="70%" style="text-align:left; height:25px;color:white">Exercise</td>
+										<td width="30%"style="text-align:center; height:25px;color:white" colspan="2">Total</td>
+									</tr>
+									<tr>
+										<td><select type="text" id="ex3" name="ex3" required></select> <br /></td>
+										<td width="94%"><input id="n3" name="n3" type="text" minlength="1" maxlength="3" oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')" required></input></td>
+										<td width="5%" style="text-align:right"><input type="button" onclick="incrementValue3()" value="+1" 
+										style="padding-left:0px; padding-top:0px; padding-right:0px; padding-bottom:0px;height:40px;width:40px;text-align:center;" /></td>
+									</tr>
+								</tbody>
+						</table>
+						<br />
+						
+						<input name="reset" id="btn" type="reset" style="width:250px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Reset">
+						<input name="btn" id="btn" type="Submit" style="width:250px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Add Plan">
+						<br><br>
+				</form>
+                <br />
+			</div>
+		</div>
+
+		<br><br><br><br><br>
+
+    <footer>
+        {{>footer}}
+		<script src="/add_goal_functions.js"></script>
+    </footer>
+</div>
+	
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

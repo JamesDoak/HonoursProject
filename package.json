@@ -1,0 +1,36 @@
+{
+  "name": "wpd2jamesdoak",
+  "version": "1.0.0",
+  "description": "My web app for WDP2 by James Alexander Doak",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JamesDoak/WPD2-CW2"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "connect-ensure-login": "^0.1.1",
+    "dayjs": "^1.10.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jquery": "^3.6.0",
+    "jsdom": "^16.5.3",
+    "login-with-twitter": "^1.2.4",
+    "mootools": "^1.4.5",
+    "mustache-express": "^1.3.0",
+    "nedb": "^1.8.0",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "build": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,157 @@
+<html>
+<head>
+{{>header}}
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+<div class="wrapper" >
+    
+		<br>
+		<div class="contactDiv">
+			<br>
+			<h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;"><i class="fa fa-trophy"></i>&nbsp;&nbsp;{{title}}
+				<br>
+			</h2>
+			<br>
+		</div><br>
+
+		<div class="contactDiv">
+			<br>
+            {{! <div class="innerDiv"> }}
+                    {{! <h1 align="center">Congratulations! Here's a list of all your achievements!<br/> }}
+                    <h2 align="center"> You currently have {{count}} trophies!</h2><br />    
+
+
+                      <div class="row">
+                            {{#achievements }}
+                                <div class="column">
+                                    
+                                       
+                                        <div class="card">
+                                                <table style="color:white;text-align:center; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+                                                    <tbody>
+
+                                                        <tr>
+                                                            {{#achieved}}
+                                                                <td style="height: 100px;color:white;text-shadow: 1px 1px #000000;     background-image: url(/images/giphy.gif);
+    background-repeat: repeat; background-size: cover;" colspan="6"><h1>Plan - {{planName}}</h1></td>
+                                                            {{/achieved}}
+                                                            {{^achieved}}
+                                                                <td style="height: 100px;color:white; background-color:#4CAF50" colspan="6"><h1>Plan - {{planName}}</h1></td>
+                                                            {{/achieved}}
+                                                        </tr>
+                                                        <tr style="height:40px;">
+                                                             {{#achieved}}
+                                                                <td colspan="6" style="width:100%; color:white; text-align:center"><i  class="fa fa-trophy" style="color: yellow" aria-hidden="true">&nbsp;Achieved</i></td>
+                                                            {{/achieved}}
+                                                            {{^achieved}}
+                                                                <td colspan="3" style="width:50%; color:white; text-align:center"><a style="text-decoration:underline;" type="button" href="/complete_goal/{{_id}}"><i style="color:white"class="fa fa-check" aria-hidden="true"> Complete This Plan</a></td>
+                                                                <td colspan="3" style="width:50%; color:white; text-align:center"><i  class="fa fa-times" style="color: white" aria-hidden="true"></i>&nbsp;Currently Incomplete</td>
+                                                            {{/achieved}}
+                                                        </tr>
+                                                        <tr style="background-color:#4da374">
+                                                            <td colspan="3" style="height: 15px;background-color:#4da374"" colspan="2">Week: {{WeekNumber}}</td>
+                                                            <td colspan="3" style="padding-right:5px;height:15px;background-color:#4da374"">{{Monday}} - {{Sunday}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4" style="height: 15px" >{{#goals}}{{exerciseType1}}{{/goals}}</td>
+                                                            <td colspan="2" style="text-align:left; height:15px">{{#goals}}{{repsOrKM1}}{{/goals}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4" style="height: 15px">{{#goals}}{{exerciseType2}}{{/goals}}</td>
+                                                            <td colspan="2" style="text-align:left;height:15px">{{#goals}}{{repsOrKM2}}{{/goals}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4" style="height:15px">{{#goals}}{{exerciseType3}}{{/goals}}</td>
+                                                            <td colspan="2" style="text-align:left;height:15px">{{#goals}}{{repsOrKM3}}{{/goals}}</td>
+                                                        </tr>
+                                                        <tr style="background-color:#4da374">
+                                                            <td style="width:60%;height:15px" colspan="3">This plan is set to be completed by: </td>
+                                                            <td style="width:40%;height:15px" colspan="3">{{Date}}</td>
+                                                        </tr>
+                                                        <tr style="background-color:">
+                                                            {{#isPublic}} <!-- if, isPublic is true - do this -->
+                                                                <td colspan="2" style="width:33%;height:15px"><p style="color: #bdc22f">Shared</p></td>
+                                                                {{#achieved}} <!-- if achieved - hide edit button -->
+                                                                    <td colspan="2" style="width:33%;height:15px"><p style="color: #bdc22f">Achieved</p></td>
+                                                                {{/achieved}}
+                                                                {{^achieved}} <!-- if not achieved, show edit button -->
+                                                                    <td colspan="2" style="width:33%;height:15px"><a href="/edit_goal/{{_id}}" style="text-decoration:none;"title="Edit this goal"><i style="color:#FFFFB5;"class="fa fa-pencil" aria-hidden="true"></i> Edit</a></td>
+                                                                {{/achieved}}
+                                                                    <td colspan="2" style="width:33%;height:15px"><a href="/delete_goal_achievement/{{_id}}" title="Delete this goal"><i style="color:#FFC8A2"class="fa fa-trash" aria-hidden="true"> Delete Plan</i></a></td>
+
+                                                            {{/isPublic}}
+
+
+                                                            {{^isPublic}} <!-- if isPublic is false - do this -->
+                                                                <td colspan="2" style="width:33%;height:15px"><a href="/share_goal/{{_id}}" title="Share this goal"><i style="color:white"class="fa fa-share-alt" aria-hidden="true"> Share</i></a></td>
+                                                                     {{#achieved}} <!-- if achieved - hide edit button -->
+                                                                    <td colspan="2" style="width:33%;height:15px"><p style="color: #bdc22f">Achieved</p></td>
+                                                                {{/achieved}}
+                                                                {{^achieved}} <!-- if not achieved, show edit button -->
+                                                                    <td colspan="2" style="width:33%;height:15px"><a href="/edit_goal/{{_id}}" style="text-decoration:none;"title="Edit this goal"><i style="color:#FFFFB5;"class="fa fa-pencil" aria-hidden="true"></i> Edit</a></td>
+                                                                {{/achieved}}
+                                                                    <td colspan="2" style="width:33%;height:15px"><a href="/delete_goal_achievement/{{_id}}" title="Delete this goal"><i style="color:#FFC8A2"class="fa fa-trash" aria-hidden="true"> Delete Plan</i></a></td>
+                                                            {{/isPublic}}
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div><br/>
+                                        
+
+                                   
+                                </div>
+                             {{/achievements}}
+                            </div>
+                        </div>
+
+
+
+                <!--
+
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px">Name</th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px">Exercise Type</th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px">Total</th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px">Achieved</th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#achievements}}
+                            
+                            <tr>
+                              
+                                <td>{{planName}}</td>
+                                <td>{{#goals}} <br/><br />{{exerciseType1}}{{exerciseType2}}{{exerciseType3}} {{/goals}}<br/><br/><br/></td>
+                                <td>{{#goals}} <br/><br />{{repsOrKM1}} {{repsOrKM2}} {{repsOrKM3}}{{/goals}}<br/><br/><br/></td>
+                                   
+                              <td>Achieved: {{DateAchieved}}<br/>
+                                 Week: {{WeekNumber}}<br/>
+                                 Week Range: <br/>{{Monday}} - {{Sunday}}</td>
+                              <td><i class="fa fa-trophy" style="color:#FF0" title="congratulations!" aria-hidden="true"></i></td>
+                            </tr>
+                            {{/achievements}}
+                      </tbody>
+                      </table>
+                        {{^achievements}}
+                        <br/>
+                        <h1 align="center" style="color:white">You haven't achieved any goals yet.</h1>
+                        <br/>
+                        {{/achievements}}
+                            -->
+
+		<br><br><br><br><br>
+
+    <footer>
+        {{>footer}}
+    </footer>
+
+</div>
+	
+
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<html>
+<head>
+{{>header}}
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+<div class="wrapper" >
+    
+		<br>
+		<div class="contactDiv">
+			<br>
+			<h2 class="innerDiv" align="center"><i class="fa fa-book"></i>&nbsp;&nbsp;{{title}}
+				<br>
+			</h2>
+			<br>
+		</div><br>
+
+        		<div class="contactDiv">
+			<br>
+            {{! <div class="innerDiv"> }}
+                    <h2 align="center">Here's a list of all your Plans</h2> 
+                    <h2 align="center">You've set {{count}} plans so far!</h2><br /> <br />
+
+                        <div class="innerDiv" align="center">
+                      					<form method="get" action="/add_goal">
+										    <button type="submit" id="regBtn" style="width:250px; box-shadow: none">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add a new week Plan</button> <!-- on click should run register(); -->
+										</form>
+                                        <br/>
+                                        <p style="color:white">You can filter by a week by clicking on any week number below<p>
+                                        
+                        </div> <br />
+                        
+                        <div>
+                        <a href="/my_planner">Remove filter</a>
+                        </div> <br/>
+                        <table class="table" style="text-align:center;font-size: 12px;height:0px; color:white;">
+                        <thead style="">
+                            <tr>
+                              <!--<th scope="col" style="text-decoration:none; text-align:center; font-weight:bold;">User</th> -- For testing -->
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px">Plan</th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px">Exercise</th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px">#</th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:15px">Status</th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:20px"></th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:20px"></th>
+                              <th scope="col" style="text-decoration:none; text-align:center; font-weight:bold; font-size:20px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#userEntries}}
+                                <tr>
+                                
+                                <!--<td>{{user}}</td> --for testing -->
+                                <td> <br/>Plan Name: <br/>{{planName}}<br/><br/>
+                                     Start Date: <br/>{{Date}}<br /><br/>
+                                    <a href="/my_planner_weekFilter/{{WeekNumber}}">Week:{{WeekNumber}}</a>{{Monday}} - {{Sunday}}<br/>
+                                    <br/>
+                                    </td>
+                                <td>{{#goals}} <br/><br />{{exerciseType1}}{{exerciseType2}}{{exerciseType3}} {{/goals}}<br/><br/><br/></td>
+                                <td>{{#goals}} <br/><br />{{repsOrKM1}} {{repsOrKM2}} {{repsOrKM3}}{{/goals}}<br/><br/><br/></td>
+                                    
+                                    {{#achieved}}
+                                        <td><i class="fa fa-trophy" style="color:#FF0" title="congratulations!" aria-hidden="true"></i></td>
+                                    {{/achieved}}
+                                    {{^achieved}}
+                                        <td>
+                                          <i class="fa fa-times" style="color: white" aria-hidden="true"></i>  <br/><br/>
+                                        <a style="text-decoration:underline" type="button" href="/complete_goal/{{_id}}">Mark as Complete</a>
+                                        </td>
+                                    {{/achieved}}
+                                    
+                                    {{#isPublic}}
+                                        <td><p style="color:white">&nbsp;</p></td>
+                                            {{#achieved}}
+                                                <td><p style="color:white">&nbsp;</p></td>
+                                            {{/achieved}}
+                                            {{^achieved}}
+                                                <td><a href="/edit_goal/{{_id}}" title="Edit this goal"><i style="color:#FFFFB5"class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                                            {{/achieved}}
+                                        <td><a href="/delete_goal_planner/{{_id}}" title="Delete this goal"><i style="color:#FFC8A2"class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                    {{/isPublic}}
+                                    {{^isPublic}}
+                                        <td><a href="/share_goal/{{_id}}" title="Share this goal"><i style="color:white"class="fa fa-share-alt" aria-hidden="true"></i></td>
+                                            {{#achieved}}
+                                                <td><p style="color:white">&nbsp;</p></td>
+                                            {{/achieved}}
+                                            {{^achieved}}
+                                                <td><a href="/edit_goal/{{_id}}" title="Edit this goal"><i style="color:#FFFFB5"class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                                            {{/achieved}}
+                                                <td><a href="/delete_goal_planner/{{_id}}" title="Delete this goal"><i style="color:#FFC8A2"class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                    {{/isPublic}}
+                                </tr>
+                            {{/userEntries}}    
+                      </tbody>
+                      </table>
+                        {{^userEntries}}
+                        <br/>
+                        <h1 align="center" style="color:white">You haven't made any plans yet.</h1>
+                        <br/>
+                        {{/userEntries}}
+                        {{! </div><br/>
+			<br> }}
+
+		</div>
+        
+        <br><br><br><br><br>
+
+    <footer>
+        {{>footer}}
+    </footer>
+
+</div>
+	
+
+
+</body>
+</html>
