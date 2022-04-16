@@ -13,37 +13,30 @@
 		<br>
 		<div class="contactDiv">
 			<br>
-			<h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;"><i class="fa fa-home"></i>&nbsp;&nbsp;Home
+			 <a style="text-decoration:underline;" type="button" href="/seed">Seed with data</a>
 				<br>
+                <a style="text-decoration:underline;" type="button" href="/addGranted">Simulate a valid swipe</a>
+                <br>
 			</h2>
 			<br>
 		</div><br>
 
+
+
         		<div class="contactDiv">
 			<br>
             {{! <div class="innerDiv"> }}
-             
-                            <div class="row">
-                            {{#allData }}
-                                <div>
-                                    
-                                       
-                                        <div>
-                                                <table style="color:white;text-align:left; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);">
-                                                    <tbody>
-                                                        <td>
-                                                            Entry: {{employeeName}} | {{UID}} | {{SwipeTime}} | {{AccessG}} | {{isAllowed}}
-                                                        </td>
-                                                    </tbody>
-                                                </table>
-                                            </div><br/>
-                                        
 
-                                   
-                                </div>
-                             {{/allData}}
-                            </div>
-                        </div>
+            <div class="innerDiv">
+                <textarea readonly>
+                
+                {{#allData }}
+                    Entry: {{employeeName}}  {{UID}}  {{SwipeTime}}  {{AccessG}}  {{isAllowed}}
+                                {{/allData}}
+                </textarea>
+            </div>
+
+
 
 		
 		<br><br><br><br><br>

@@ -14,6 +14,35 @@ class SwipeLog{
         }
     }
 
+
+    addGranted(){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        // var mm = today.getMonth() +1;
+        var mm = String(today.getMonth() +1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var hours = String(today.getHours());
+        var mins = String(today.getMinutes());
+        var seconds = String(today.getSeconds());
+        var time = today.getTime();
+
+        
+        today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
+
+        this.db.insert({
+            employeeName: 'Granted User',
+            UID: '987CRJWFW39',
+            SwipeTime: today,
+            AccessG: "Access GRANTED",
+            isAllowed: true,
+            isPublic: true,
+            time: time
+
+        })
+        console.log('New swipe entry for James Doak entered into the db.')
+        
+    }
+
     //basic seed method - may not need to use.
     init(){
 
@@ -24,9 +53,11 @@ class SwipeLog{
             var mm = String(today.getMonth() +1).padStart(2, '0');
             var yyyy = today.getFullYear();
             var hours = String(today.getHours());
-            var seconds = String(today.getSeconds()); 
+            var mins = String(today.getMinutes());
+            var seconds = String(today.getSeconds());
+            var time = today.getTime();
             
-            today = yyyy + '-' + mm + '-' + dd + "-" + hours + ":" + seconds;
+            today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
 
 
             this.db.insert({
@@ -35,7 +66,8 @@ class SwipeLog{
                 SwipeTime: today,
                 AccessG: "Access GRANTED",
                 isAllowed: true,
-                isPublic: true
+                isPublic: true,
+                time: time
 
             })
             console.log('New swipe entry for James Doak entered into the db.')
@@ -46,7 +78,8 @@ class SwipeLog{
                 SwipeTime: today,
                 AccessG: "Access REFUSED",
                 isAllowed: false,
-                isPublic: true
+                isPublic: true,
+                time: time
 
             })
             console.log('New swipe entry  Unknown entered into the db.')
@@ -57,7 +90,8 @@ class SwipeLog{
                 SwipeTime: today,
                 AccessG: "Access GRANTED",
                 isAllowed: true,
-                isPublic: true
+                isPublic: true,
+                time: time
 
             })
             console.log('New swipe entry for Jack Black entered into the db.')

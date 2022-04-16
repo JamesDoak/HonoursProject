@@ -26,6 +26,7 @@ router.post('/register', controller.post_new_user);
 router.get('/my_achievements', ensureLoggedIn('/login'), controller.my_achievements);
 router.get('/public_plans', ensureLoggedIn('/login'),   controller.public_plans);
 router.get('/seed', ensureLoggedIn('/login'), swipeController.seed_db);
+router.get('/addGranted', ensureLoggedIn('/login'), swipeController.add_granted);
 //Crud related pages
 router.get('/add_goal', ensureLoggedIn('/login'), controller.show_add_goal);
 router.post('/add_goal', ensureLoggedIn('/login'), controller.add_goal)

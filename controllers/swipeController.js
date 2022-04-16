@@ -13,6 +13,7 @@ exports.landing_page = function(req, res){
 
 //REWORK THIS
     db.getAllData(req.user.user).then((list) => {
+        list = list.sort((a, b) => b.time - a.time);
         //create a sorted list that will display the most recent entries first
         res.render('index', {
             'title':'SwipeLog',
@@ -28,6 +29,11 @@ exports.landing_page = function(req, res){
 
 exports.seed_db = function(req, res){
     db.init();
+    res.redirect('/');
+}
+
+exports.add_granted = function(req, res){
+    db.addGranted();
     res.redirect('/');
 }
 

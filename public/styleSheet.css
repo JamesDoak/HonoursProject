@@ -84,7 +84,7 @@ form input[type=textarea] {
   -webkit-box-sizing: border-box;
       box-sizing: border-box;
   text-align: left;
-  width: 100%;
+  width: 90%;
 }
 
 
@@ -104,7 +104,7 @@ body {
     /* background-color:#E6E6FA;r  -- set this for a white background - remember to add it to the body*/
     /*background image by "http://www.zingerbugimages.com/backgrounds/light_green_diagonal_stripes_seamless_background_pattern.jpg" */
     /* background-image: url(/images/light_green_diagonal_stripes_seamless_background_pattern.jpg); */
-    background-color: #16161699;
+    background-color: #000000;
     background-repeat: repeat;
 }
 
@@ -245,7 +245,7 @@ table{
   border-collapse: collapse;
   margin: 0 auto;
   font-size: 14px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   /* border-radius: 10% 10% 60% 60%; */
 }
 
@@ -355,7 +355,7 @@ li a:hover:not(.active) {
 .contactDiv{
   width:90%;
   align-content: center;
-  background-color: #2f7671;
+  background-color: #2b2b2b;
   margin: auto;
   height: auto;
   color:white;
@@ -365,16 +365,26 @@ li a:hover:not(.active) {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%), 3px 5px 20px rgb(0 0 0 / 19%)
 }
 
+.subdiv{
+  width:90%;
+  background-color: #858585;
+  margin: auto;
+  height: auto;
+  color:white;
+      border-radius:var(--main-radius);
+    padding: var(--main-padding);
+  word-wrap: break-word;
+}
 /*set the properties of the inner divs, used to display content*/
 .innerDiv{
     width:90%;
     align-content: center;
-    background-color: #2f7671;
+    background-color: #2b2b2b;
     margin: auto;
     height: auto;
     color:white;
-    border-radius:var(--main-radius);
-    padding: var(--main-padding);
+    /* border-radius:var(--main-radius);
+    padding: var(--main-padding); */
     word-wrap: break-word;
 }
 
@@ -593,7 +603,7 @@ input[type=text], select {
 
 /*format my contact us form*/
 textarea[type=text], select {
-  width: 100%;
+  width: 90%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -601,7 +611,8 @@ textarea[type=text], select {
   border-radius: 4px;
   font-size: 12px;
   box-sizing: border-box;
-  resize: vertical;
+  overflow-y:scroll;
+  resize: none;
 }
 
 
@@ -696,7 +707,8 @@ input[type=password], select {
 }
 
 textarea {
-  width: 100%;
+  width: 90%;
+  align-self: center;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -704,10 +716,12 @@ textarea {
   border-radius: 4px;
   /*make sure it cannot resize beyond div width*/
   max-width: 100%;
-  min-width: 100%;
-  height: 100px;
+  min-width: 90%;
+  height: 300px;
   min-height: 120px;
-  max-height: 200px;
+  max-height: 300px;
+  overflow-y:scroll;
+  resize: none;
 }
 
 
