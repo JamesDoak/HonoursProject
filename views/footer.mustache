@@ -1,15 +1,36 @@
 
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    let a;
+    let time;
+    setInterval(() => {
+      a = new Date();
+      time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+      document.getElementById('time').innerHTML = time;
+    }, 1000);
+  </script>
+ 
 
-		<div class="footer">
+		<div onload="clock()" class="footer">
             {{#user}}
-                <a id="about" href="/about"><i class="fa fa-question-circle-o"></i>&nbsp;&nbsp;About</a>
-                <a id="contact" href="/contact"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Contact</a></p>
+            <div style="display: flex; justify-content: space-around">
+                <div></div>
+                <div><a><span id="time"></span></a></div>
+                <div></div>
+            </div>
+                {{! <a id="about" href="/about"><i class="fa fa-question-circle-o"></i>&nbsp;&nbsp;About</a>
+                <a id="contact" href="/contact"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Contact</a></p> }}
+                 
             {{/user}}
             {{^user}}
-                <a id="aboutUs" href="/aboutUs"><i class="fa fa-question-circle-o"></i>&nbsp;&nbsp;About</a>
-                <a id="contactUs" href="/contactUs"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Contact</a></p>
+                {{! <a id="aboutUs" href="/aboutUs"><i class="fa fa-question-circle-o"></i>&nbsp;&nbsp;About</a>
+                <a id="contactUs" href="/contactUs"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Contact</a></p> }}
+            <div style="display: flex; justify-content: space-around">
+                <div></div>
+                <div><a><span id="time"></span></a></div>
+                <div></div>
+            </div>
             {{/user}}
         </div>
 

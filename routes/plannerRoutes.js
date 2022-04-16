@@ -4,6 +4,7 @@
     const router = express.Router();
 //import the controller module
     const controller = require('../controllers/plannerControllers');
+    const swipeController = require('../controllers/swipeController');
 //import the auth
     const auth = require('../auth/auth');
 //import the ensure logged in module
@@ -11,7 +12,7 @@
 
 
 // Initial index
-router.get("/", ensureLoggedIn('/login'), controller.landing_page);
+router.get("/", ensureLoggedIn('/login'), swipeController.landing_page);
 router.get('/filterWeek/:WeekNumber', ensureLoggedIn('/login'),  controller.show_week_filter);
 // router.get('/my_planner_weekFilter/:WeekNumber', ensureLoggedIn('/login'),  controller.show_planner_week_filter);
 //Account related pages
@@ -24,7 +25,7 @@ router.post('/register', controller.post_new_user);
 // router.get('/my_planner', ensureLoggedIn('/login'), controller.my_planner); -- removed, page is now redundant.
 router.get('/my_achievements', ensureLoggedIn('/login'), controller.my_achievements);
 router.get('/public_plans', ensureLoggedIn('/login'),   controller.public_plans);
-router.get('/seed', ensureLoggedIn('/login'), controller.seed_db);
+router.get('/seed', ensureLoggedIn('/login'), swipeController.seed_db);
 //Crud related pages
 router.get('/add_goal', ensureLoggedIn('/login'), controller.show_add_goal);
 router.post('/add_goal', ensureLoggedIn('/login'), controller.add_goal)

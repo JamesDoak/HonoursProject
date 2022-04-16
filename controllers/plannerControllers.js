@@ -3,6 +3,8 @@
 const TrainingPlanner = require('../models/plannerDataModel');
 //pass in the db name to the training planner class
 const db = new TrainingPlanner('PlannerDatabase.db');
+
+// const db2 = new SwipeLog('SwipeLog.db');
 //import the user model
 const uClass = require('../models/userModel');
 
