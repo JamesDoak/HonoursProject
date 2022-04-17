@@ -1,8 +1,8 @@
 
 switch (!0) {
     
-    case /publicPlans/.test(window.location.pathname):
-        document.getElementById("publicPlans").classList.add("active");
+    case /all_employees/.test(window.location.pathname):
+        document.getElementById("all_employees").classList.add("active");
         break;
     case /aboutUs/.test(window.location.pathname):
         document.getElementById("aboutUs").classList.add("active");
@@ -16,8 +16,8 @@ switch (!0) {
     case /public_plans/.test(window.location.pathname):
         document.getElementById("public").classList.add("active");
         break;
-    case /my_achievements/.test(window.location.pathname):
-        document.getElementById("achievements").classList.add("active");
+    case /add_employee/.test(window.location.pathname):
+        document.getElementById("add_employee").classList.add("active");
         break;
     // case /my_planner/.test(window.location.pathname):
     //     document.getElementById("myPlans").classList.add("active");
@@ -35,6 +35,9 @@ switch (!0) {
             document.getElementById("login").classList.add("active");
         break;
     case /add_goal/.test(window.location.pathname):
+        document.getElementById("home").classList.add("active");
+        break;
+    case /add_employee/.test(window.location.pathname):
         document.getElementById("home").classList.add("active");
         break;
     case /./.test(window.location.pathname):

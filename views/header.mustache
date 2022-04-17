@@ -1,16 +1,6 @@
 <!--
-Document: Header.Mustache
-Title: James Doak - CW2 Training Planner
-Student: James Alexander Doak
-Student ID: S2003184
-Project: Coursework 2
-Module: Web Platform Development 2 (M3I322955-20-B)
-Date Submitted: xxxx
-
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>James Doak - CW2 Training Planner</title>
 
     grab the stylesheets -->
     <link rel="icon" href="../images/favicon.png">
@@ -43,15 +33,13 @@ Date Submitted: xxxx
                         {{^user}}
                             <a id="login" href="/login" ><i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;Login</a>
                         {{/user}}
-                        {{^user}}
-                            <a id="publicPlans" href="/publicPlans" ><i class="fa fa-globe"></i>&nbsp;&nbsp;Public Plans</a>
-                        {{/user}}
+
                         {{#user}}
-                            <a id="public" href="/public_plans" ><i class="fa fa-globe"></i>&nbsp;&nbsp;Public Plans</a>
+                            <a id="all_employees" href="/all_employees" ><i class="fa fa-users"></i>&nbsp;&nbsp;All Employees</a>
                         {{/user}}
                             
                         {{#user}}
-                            <a id="achievements" href="/my_achievements" ><i class="fa fa-trophy"></i>&nbsp;&nbsp;My Achivements</a>
+                            <a id="add_employee" href="/add_employee" ><i class="fa fa-user"></i>&nbsp;&nbsp;Add Employee</a>
                             {{! <a id="myPlans" href="/my_planner" ><i class="fa fa-book"></i>&nbsp;&nbsp;My Planner</a> }}
                             <a id="home" href="/" ><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a> 
                         {{/user}}

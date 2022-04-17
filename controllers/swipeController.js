@@ -2,6 +2,7 @@ const SwipeLog = require('../models/swipeLogDataModel');
 
 //pass in the db name to the training planner class
 const db = new SwipeLog('swipeLogDetails.db');
+const edb = new SwipeLog('employeeDB.db');
 
 //import the user model
 const uClass = require('../models/userModel');
@@ -40,6 +41,46 @@ exports.add_granted = function(req, res){
 exports.add_second = function(req, res){
     db.addSecondSwipe();
     res.redirect('/');
+}
+
+exports.add_employee = function(req, res){
+    //post add goal, enter values from screen
+   
+    console.log();
+    edb.add_employee(req.body.empName, req.body.eID, req.body.ePos);
+    res.redirect('/');
+
+}
+
+exports.show_add_employee = function(req, res){
+    res.render('addEmployee', {
+        'title': 'Add a new Employee',
+        'background':'#E6E6FA',
+        'user' : req.user.user
+    });
+}
+
+exports.show_all_employees = function(req, res){
+    
+    var user = req.user.user;
+
+        edb.getAllEmployees().then((list) => {
+        //sort the list showing most recent entries first.
+        // list = list.filter(recentEntry => (recentEntry.DateShared)).sort(function(a, b){
+        //     return new Date(b.DateShared) - new Date(a.DateShared);
+        // });
+        var count = Object.keys(list).length;
+        res.render('all_employees', {
+        'title':'All Employees',
+        'background':'#E6E6FA',
+        'employees' : list,
+        'count' : count,
+        'user' : user
+        });
+        console.log('promise resolved');
+    }).catch((err) => {
+        console.log('promise rejected', err);
+    })
 }
 
 

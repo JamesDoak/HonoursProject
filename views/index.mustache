@@ -1,6 +1,7 @@
 <html>
 <head>
 {{>header}}
+
 </head>
 
 
@@ -37,18 +38,18 @@
 
 
 
-        		<div class="contactDiv">
-			<br>
-            {{! <div class="innerDiv"> }}
+<div class="contactDiv">
+<br>
+{{! <div class="innerDiv"> }}
 
-            <div class="innerDiv">
-                <textarea readonly>
-                
-                {{#allData }}
-                    {{SwipeStatus}} Name:{{employeeName}}  ID:{{UID}}  Time:{{SwipeTime}}  {{AccessG}}
-                                {{/allData}}
-                </textarea>
-            </div>
+<div class="innerDiv">
+    <textarea readonly>
+    
+{{#allData }}
+{{SwipeTime}}  -  {{SwipeStatus}}        |  Name:{{employeeName}}  |  ID:{{UID}}  |   {{AccessG}}
+{{/allData}}
+    </textarea>
+</div>
 
 
 

@@ -1,0 +1,79 @@
+<html>
+<head>
+{{>header}}
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+<div class="wrapper" >
+    
+		<br>
+		<div class="contactDiv">
+			<br>
+			<h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;"><i class="fa fa-globe"></i>&nbsp;&nbsp;{{title}}
+				<br>
+			</h2>
+			<br>
+		</div><br>
+
+        		<div class="contactDiv">
+			<br>
+            {{! <div class="innerDiv"> }}
+                    <h2 align="center">We currently have {{count}} employees in our system!</h2> <br /><br /><br />
+                                                    
+                    <div class="row">
+                            {{#employees }}
+                                <div class="column">
+                                    
+                                       
+                                        <div class="card">
+                                                <table style="color:white;text-align:center; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+                                                    <tbody>
+                                                        <tr>
+                                                                <td style="height: 100px;color:white; text-shadow: 1px 1px #000000;background-color:#4CAF50" colspan="6"><h1>{{EmployeeName}}</h1></td>
+                                                        </tr>
+                                                        <tr style="height:40px;background-color:#4da374">
+                                                                <td colspan="6" style="width:50%; color:white; text-align:center"><i class="fa fa-share-alt" aria-hidden="true"> Shared By User: {{name}}</i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4" style="height: 15px; width:60%" >{{#goals}}{{exerciseType1}}{{/goals}}</td>
+                                                            <td colspan="2" style="text-align:center; height:15px">{{#goals}}{{repsOrKM1}}{{/goals}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4" style="height: 15px">{{#goals}}{{exerciseType2}}{{/goals}}</td>
+                                                            <td colspan="2" style="text-align:center;height:15px">{{#goals}}{{repsOrKM2}}{{/goals}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4" style="height:15px">{{#goals}}{{exerciseType3}}{{/goals}}</td>
+                                                            <td colspan="2" style="text-align:center;height:15px">{{#goals}}{{repsOrKM3}}{{/goals}}</td>
+                                                        </tr>
+                                                        <tr style="background-color:#4da374">
+                                                            <td style="width:60%;height:30px" colspan="6">
+                                                            <a href="/edit_employee/{{_id}}" title="Edit this employee">
+                                                            <i class="fa fa-pencil" style="color:white" aria-hidden="true"></i>&nbsp;Edit this employee
+                                                            </a></td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div><br/>
+                                        
+                                </div>
+                             {{/employees}}
+                            </div>
+                        </div>
+
+
+		<br><br><br><br><br>
+
+    <footer>
+        {{>footer}}
+    </footer>
+
+</div>
+	
+
+
+</body>
+</html>

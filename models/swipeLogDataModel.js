@@ -8,8 +8,8 @@ class SwipeLog{
         if (dbFilePath) {
             this.db = new nedb({filename: dbFilePath, autoload: true})
             console.log('connected to the database', dbFilePath);
-            var user = 'Granted User';
-            this.getUserData(user);
+            // var user = 'Granted User';
+            // this.getUserData(user);
         }
         else {
             this.db = new nedb();
@@ -25,9 +25,9 @@ class SwipeLog{
         // var mm = today.getMonth() +1;
         var mm = String(today.getMonth() +1).padStart(2, '0');
         var yyyy = today.getFullYear();
-        var hours = String(today.getHours());
-        var mins = String(today.getMinutes());
-        var seconds = String(today.getSeconds());
+        var hours = String(today.getHours()).padStart(2, '0');
+        var mins = String(today.getMinutes()).padStart(2, '0');
+        var seconds = String(today.getSeconds()).padStart(2, '0');
         var time = today.getTime();
 
         
@@ -71,18 +71,13 @@ class SwipeLog{
                 SwipeStatus: 'Swipe IN',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
-                AccessG: "Access GRANTED",
+                AccessG: "GRANTED",
                 isAllowed: true,
                 isPublic: true,
                 time: time
     
             })
             console.log('New swipe entry for Granted User entered into the db.')
-        
-
-
-
-        
         
     }
 
@@ -109,6 +104,19 @@ class SwipeLog{
         })
     }
 
+    getAllUserData(user){
+        return new Promise((resolve, reject) => {
+            this.db.find({'employeeName':user}).exec((err, data)=>{
+                data.sort((a, b) => b.time - a.time);
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(data)
+                }
+            })
+        })
+    }
+
     //basic seed method - may not need to use.
     init(){
 
@@ -128,6 +136,7 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'James Doak',
+                SwipeStatus: 'Swipe IN',
                 UID: '987CRJI289',
                 SwipeTime: today,
                 AccessG: "GRANTED",
@@ -143,7 +152,7 @@ class SwipeLog{
                 SwipeStatus: 'Swipe IN',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
-                AccessG: "Access GRANTED",
+                AccessG: "GRANTED",
                 isAllowed: true,
                 isPublic: true,
                 time: time
@@ -153,6 +162,7 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'Unknown',
+                SwipeStatus: 'Swipe IN',
                 UID: 'SDVL28439D',
                 SwipeTime: today,
                 AccessG: "REFUSED",
@@ -165,6 +175,7 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'Jack Black',
+                SwipeStatus: 'Swipe IN',
                 UID: 'EVE20984DV',
                 SwipeTime: today,
                 AccessG: "GRANTED",
@@ -193,6 +204,59 @@ class SwipeLog{
         })
     }
 
+
+    add_employee(name, uid, position){
+
+        //need to pass in the plan name, and new exercises/reps - plName, ex2, rep2, ex3, rep3
+
+        //get the week number of the passed in date
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        // var mm = today.getMonth() +1;
+        var mm = String(today.getMonth() +1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var hours = String(today.getHours());
+        var mins = String(today.getMinutes());
+        var seconds = String(today.getSeconds());
+        var time = today.getTime();
+        
+        today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
+
+        //create a new plan
+        var newEmployee = 
+        {
+            EmployeeName: name,
+            UID: uid,
+            Position: position,
+            dateJoined: today,
+            isAllowed: true
+        }
+        console.log('New Employee: ', newEmployee);
+        
+        this.db.insert(newEmployee, function(err, doc){
+            if(err){
+                console.log("500", fname);
+            } else {
+                console.log('New employee inserted', doc);
+            }
+        })
+        
+    }
+
+
+    getAllEmployees(){
+            
+        return new Promise((resolve, reject) => {
+            this.db.find({ }, function(err, employees) {
+                if (err){
+                    reject (err);
+                } else {
+                    resolve(employees);
+                    console.log('getAllEmployees() returns: ', employees);
+                }
+            })
+        })
+    }
 
 
 }
