@@ -216,8 +216,8 @@ class SwipeLog{
         var mm = String(today.getMonth() +1).padStart(2, '0');
         var yyyy = today.getFullYear();
         var hours = String(today.getHours());
-        var mins = String(today.getMinutes());
-        var seconds = String(today.getSeconds());
+        var mins = String(today.getMinutes()).padStart(2, '0');
+        var seconds = String(today.getSeconds()).padStart(2, '0');
         var time = today.getTime();
         
         today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
@@ -258,6 +258,39 @@ class SwipeLog{
         })
     }
 
+
+    getEmployeeById(id){
+        return new Promise((resolve, reject) => {
+            this.db.find( { '_id': id} , function(err, entries){
+                console.log('ID: ', id)
+                if (err){
+                reject(err);
+                 } else {
+            resolve(entries);
+            console.log('getEmployeeById() returns ', entries);
+                }   
+            })
+        })
+    
+    }
+
+
+    edit_employee(id, empName, UID, ePos, user){
+
+        this.db.update({_id : id}, 
+                { $set: 
+                    {   'EmployeeName' : empName,
+                    'UID' : UID,
+                    'Position' : ePos
+                }
+            }, {}, function(err, numUp){
+            if(err){
+                console.log('error updating document', err);
+            } else {
+                console.log(numUp, 'Document updated');
+            }
+        })
+}
 
 }
 

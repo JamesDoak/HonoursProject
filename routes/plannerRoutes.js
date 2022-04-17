@@ -13,7 +13,7 @@
 
 // Initial index
 router.get("/", ensureLoggedIn('/login'), swipeController.landing_page);
-router.get('/filterWeek/:WeekNumber', ensureLoggedIn('/login'),  controller.show_week_filter);
+// router.get('/filterWeek/:WeekNumber', ensureLoggedIn('/login'),  controller.show_week_filter);
 // router.get('/my_planner_weekFilter/:WeekNumber', ensureLoggedIn('/login'),  controller.show_planner_week_filter);
 //Account related pages
 router.get('/login', controller.show_login_page);
@@ -23,8 +23,8 @@ router.get('/register', controller.show_register_page);
 router.post('/register', controller.post_new_user);
  router.get('/account', ensureLoggedIn('/login'), controller.account);
 // router.get('/my_planner', ensureLoggedIn('/login'), controller.my_planner); -- removed, page is now redundant.
-router.get('/my_achievements', ensureLoggedIn('/login'), controller.my_achievements);
-router.get('/public_plans', ensureLoggedIn('/login'),   controller.public_plans);
+// router.get('/my_achievements', ensureLoggedIn('/login'), controller.my_achievements);
+// router.get('/public_plans', ensureLoggedIn('/login'),   controller.public_plans);
 router.get('/seed', ensureLoggedIn('/login'), swipeController.seed_db);
 router.get('/addGranted', ensureLoggedIn('/login'), swipeController.add_granted);
 router.get('/addSecondSwipe', ensureLoggedIn('/login'), swipeController.add_second);
@@ -34,8 +34,8 @@ router.get('/add_employee', ensureLoggedIn('/login'), swipeController.show_add_e
 router.post('/add_employee', ensureLoggedIn('/login'), swipeController.add_employee)
 router.get('/all_employees', ensureLoggedIn('/login'), swipeController.show_all_employees);
 
-// router.get('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.show_edit_employee);
-// router.post('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.edit_employee);
+router.get('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.show_edit_employee);
+router.post('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.edit_employee);
 
 
 router.get('/add_goal', ensureLoggedIn('/login'), controller.show_add_goal);
@@ -46,17 +46,17 @@ router.get('/delete_goal/:id', ensureLoggedIn('/login'), controller.post_delete_
 router.get('/delete_goal_achievement/:id', ensureLoggedIn('/login'), controller.post_delete_goal_achievement);
 // router.get('/delete_goal_planner/:id', ensureLoggedIn('/login'), controller.post_delete_goal_planner);  removed, page is now redundant.
 router.get('/complete_goal/:id', ensureLoggedIn('/login'), controller.complete_this_goal);
-router.get('/share_goal/:id', ensureLoggedIn('/login'), controller.share_this_goal);
+// router.get('/share_goal/:id', ensureLoggedIn('/login'), controller.share_this_goal);
 //About and Contact pages
-router.get('/aboutUs', controller.about_us_anon); //allow anon users to view the about us page
-router.get('/contactUs', controller.contact_us_anon); //allow anon users to view the contact page
-router.post('/contactUs', controller.post_new_anon_message); //allow anon members to post a new message
-router.get('/messageSuccess', controller.message_success_anon); //allow anon users to view that their message has been sent.
+// router.get('/aboutUs', controller.about_us_anon); //allow anon users to view the about us page
+// router.get('/contactUs', controller.contact_us_anon); //allow anon users to view the contact page
+// router.post('/contactUs', controller.post_new_anon_message); //allow anon members to post a new message
+// router.get('/messageSuccess', controller.message_success_anon); //allow anon users to view that their message has been sent.
 router.get('/publicPlans', controller.public_plans_anon); //allow anon users to view the public plans page.
-router.get('/about', ensureLoggedIn('/login'),  controller.about_us);
-router.get('/contact', ensureLoggedIn('/login'),  controller.contact_us);
-router.post('/contact',ensureLoggedIn('/login'),   controller.post_new_contactUs);
-router.get('/message_success', ensureLoggedIn('/login'),  controller.message_success);
+// router.get('/about', ensureLoggedIn('/login'),  controller.about_us);
+// router.get('/contact', ensureLoggedIn('/login'),  controller.contact_us);
+// router.post('/contact',ensureLoggedIn('/login'),   controller.post_new_contactUs);
+// router.get('/message_success', ensureLoggedIn('/login'),  controller.message_success);
 router.get('/shared_plan/:id', ensureLoggedIn('/login'),  controller.get_shared_plan);
 router.post('/shared_plan/:id', ensureLoggedIn('/login'),  controller.add_shared_plan);
 

@@ -34,25 +34,34 @@
                                                                 <td style="height: 100px;color:white; text-shadow: 1px 1px #000000;background-color:#4CAF50" colspan="6"><h1>{{EmployeeName}}</h1></td>
                                                         </tr>
                                                         <tr style="height:40px;background-color:#4da374">
-                                                                <td colspan="6" style="width:50%; color:white; text-align:center"><i class="fa fa-share-alt" aria-hidden="true"> Shared By User: {{name}}</i></td>
+                                                                <td colspan="6" style="width:50%; color:white; text-align:center"><i aria-hidden="true"> UID: {{UID}}</i></td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="4" style="height: 15px; width:60%" >{{#goals}}{{exerciseType1}}{{/goals}}</td>
-                                                            <td colspan="2" style="text-align:center; height:15px">{{#goals}}{{repsOrKM1}}{{/goals}}</td>
+                                                            <td colspan="4" style="height:15px"><i aria-hidden="true">Position: {{Position}}</i></td>
+                                                            {{#isAllowed}}
+                                                            <td colspan="2" style="text-align:center;height:15px"><i aria-hidden="true">Access Allowed: <i class="fa fa-check" style="color:white" aria-hidden="true"></i></i></td>
+                                                            {{/isAllowed}}
+                                                            {{^isAllowed}}
+                                                            <td colspan="2" style="text-align:center;height:15px"><i aria-hidden="true">Access Allowed: <i class="fa fa-times" style="color:white" aria-hidden="true"></i></i></td>
+                                                            {{/isAllowed}}
+                                                        
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="4" style="height: 15px">{{#goals}}{{exerciseType2}}{{/goals}}</td>
-                                                            <td colspan="2" style="text-align:center;height:15px">{{#goals}}{{repsOrKM2}}{{/goals}}</td>
+                                                            <td colspan="6" style="width:50%; color:white; text-align:center"><i aria-hidden="true"> Date Joined: {{dateJoined}}</i></td>
                                                         </tr>
-                                                        <tr>
-                                                            <td colspan="4" style="height:15px">{{#goals}}{{exerciseType3}}{{/goals}}</td>
-                                                            <td colspan="2" style="text-align:center;height:15px">{{#goals}}{{repsOrKM3}}{{/goals}}</td>
-                                                        </tr>
+
                                                         <tr style="background-color:#4da374">
-                                                            <td style="width:60%;height:30px" colspan="6">
-                                                            <a href="/edit_employee/{{_id}}" title="Edit this employee">
-                                                            <i class="fa fa-pencil" style="color:white" aria-hidden="true"></i>&nbsp;Edit this employee
-                                                            </a></td>
+                                                            <td style="width:50%;height:30px" colspan="3">
+                                                                <a href="/edit_employee/{{_id}}" title="Edit this employee">
+                                                                <i class="fa fa-pencil" style="color:white" aria-hidden="true"></i>&nbsp;Edit this employee
+                                                                </a>
+                                                            </td>
+                                                            <td style="width:50%;height:30px" colspan="3">
+                                                                <a href="/view_emp_details/{{_id}}" title="View Details">
+                                                                <i class="fa fa-pencil" style="color:white" aria-hidden="true"></i>&nbsp;View Details
+                                                                </a>
+                                                            </td>
+
                                                         </tr>
 
                                                     </tbody>

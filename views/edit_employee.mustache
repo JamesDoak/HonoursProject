@@ -1,0 +1,73 @@
+
+<html>
+<head>
+{{>header}}
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+<div class="wrapper" >
+		<br>
+		<div class="contactDiv">
+			<br>
+                    <h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;">Edit Employee
+                        <br>
+                    </h2>
+			<br>
+		</div>
+        <br />
+
+		<div class="contactDiv">
+			<br>
+			<div class="innerDiv" align="center">
+			<br>
+				<form name="myForm" method="post" onsubmit="return validateForm()">
+
+						{{#entries}}
+
+							<label for="start">Employee Name</label><br />
+							<input id="empName" name="empName" value="{{EmployeeName}}" type="text" style="text-align:center;"></td>
+
+							<label for="pName">Card UID</label>
+							<input id="eID" name="eID" value="{{UID}}" type="text" style="text-align:center;"></td>
+
+							<label for="pName">Position</label>
+							<input id="ePos" name="ePos" value="{{Position}}" type="text" style="text-align:center;"></td>
+
+							<br /><br/>
+							
+								<input name="reset" id="btn" type="reset" style="width:250px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Reset">
+						    	<form method="get" action="/edit_employee/{{_id}}">
+										<button type="submit" id="regBtn" style="width:250px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                      	Edit Employee </button> <!-- on click should run register(); -->
+								</form>
+							<br><br>
+
+							
+						{{/entries}}
+
+						<br><br>
+				</form>
+                <br />
+			</div>
+		</div>
+
+		<br><br><br><br><br>
+
+
+    <footer>
+        {{>footer}}
+		
+		<script src="/edit_goal_functions.js"></script>
+    </footer>
+</div>
+	
+
+
+</body>
+</html>
+
+
+
+

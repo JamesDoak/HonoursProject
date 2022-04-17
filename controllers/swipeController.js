@@ -85,6 +85,30 @@ exports.show_all_employees = function(req, res){
 
 
 
+exports.show_edit_employee = function (req, res) {
+    console.log('filtering employee_id', req.params.id);
+
+    let employeeID = req.params.id;
+    edb.getEmployeeById(employeeID).then((entries) => {
+        res.render('edit_employee', {
+            'title': 'Edit Employee',
+            'entries' : entries,
+            'user' : req.user.user
+        });
+    }).catch((err) => {
+        console.log('error handling employee', err);
+    });
+}
+
+
+exports.edit_employee = function(req, res){
+    var user = req.user.user;
+    edb.edit_employee(req.params.id, req.body.empName, req.body.eID, req.body.ePos, user);
+    res.redirect('/');
+}
+
+
+
 ///////////////////////////////////////////////////////
 // ACCOUNT RELATED //
 ///////////////////////////////////////////////////////
