@@ -37,6 +37,10 @@ exports.add_granted = function(req, res){
     res.redirect('/');
 }
 
+exports.add_second = function(req, res){
+    db.addSecondSwipe();
+    res.redirect('/');
+}
 
 
 

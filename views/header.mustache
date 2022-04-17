@@ -22,9 +22,19 @@ Date Submitted: xxxx
    {{! <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> }}
 
     <!-- Set the nav bar, linking to other pages -->
+
+    <script type="text/javascript" charset="utf-8">
+        let a;
+        let time;
+        setInterval(() => {
+        a = new Date();
+        time = String(a.getHours()).padStart(2, "0") + ':' + String(a.getMinutes()).padStart(2, "0") + ':' + String(a.getSeconds()).padStart(2, "0");
+        document.getElementById('time').innerHTML = time;
+        }, 1000);
+    </script>
     
 	<div class="topnav" id="myTopnav">
-                    <a href="/" style="float:left;">O<i class="fa fa-heartbeat"></i>KY</a> 
+    <a style="float:left;"><span id="time"></span></a>
                     <a style="align:right" href="javascript:void(0);" class="icon" onclick="myFunction()">
 					<i class="fa fa-bars"></i>
                         {{#user}}

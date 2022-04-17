@@ -147,7 +147,7 @@ footer {
   left:0;
   right:0;
   position: fixed;
-  background-color: #2f7671;
+  background-color: #2b2b2b;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%), 3px 5px 20px rgb(0 0 0 / 19%);
   width:100%;
   transition: all 0.5s ease;
@@ -317,7 +317,7 @@ li a:hover:not(.active) {
 .topnav {
   overflow: hidden;
   z-index: 1;
-  background-color: #2f7671;
+  background-color: #2b2b2b;
   width:100%;
   position: fixed;
   box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
@@ -603,7 +603,7 @@ input[type=text], select {
 
 /*format my contact us form*/
 textarea[type=text], select {
-  width: 90%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -707,19 +707,19 @@ input[type=password], select {
 }
 
 textarea {
-  width: 90%;
+  width: 100%;
   align-self: center;
   padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
+  /* margin: 8px 0; */
+  /* display: inline-block; */
   border: 1px solid #ccc;
   border-radius: 4px;
   /*make sure it cannot resize beyond div width*/
   max-width: 100%;
   min-width: 90%;
-  height: 300px;
+  height: 400px;
   min-height: 120px;
-  max-height: 300px;
+  max-height: 400px;
   overflow-y:scroll;
   resize: none;
 }

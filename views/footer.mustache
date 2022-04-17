@@ -6,7 +6,7 @@
     let time;
     setInterval(() => {
       a = new Date();
-      time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+      time = String(a.getHours()).padStart(2, "0") + ':' + String(a.getMinutes()).padStart(2, "0") + ':' + String(a.getSeconds()).padStart(2, "0");
       document.getElementById('time').innerHTML = time;
     }, 1000);
   </script>
