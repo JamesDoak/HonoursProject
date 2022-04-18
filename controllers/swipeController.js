@@ -85,6 +85,22 @@ exports.show_all_employees = function(req, res){
 
 
 
+exports.show_emp_details = function (req, res) {
+    console.log('filtering employee_id', req.params.id);
+
+    let UID = req.params.id;
+    db.getEmpSwipeData(UID).then((entries) => {
+        res.render('show_emp_det', {
+            'title': 'Employee Swipe Log',
+            'entries' : entries,
+            'user' : req.user.user
+        });
+    }).catch((err) => {
+        console.log('error handling employee', err);
+    });
+}
+
+
 exports.show_edit_employee = function (req, res) {
     console.log('filtering employee_id', req.params.id);
 

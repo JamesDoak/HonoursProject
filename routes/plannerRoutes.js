@@ -21,7 +21,7 @@ router.post('/login', auth.authorize("/login"), controller.post_login); //implem
 router.get('/logout', controller.logout);
 router.get('/register', controller.show_register_page);
 router.post('/register', controller.post_new_user);
- router.get('/account', ensureLoggedIn('/login'), controller.account);
+router.get('/account', ensureLoggedIn('/login'), controller.account);
 // router.get('/my_planner', ensureLoggedIn('/login'), controller.my_planner); -- removed, page is now redundant.
 // router.get('/my_achievements', ensureLoggedIn('/login'), controller.my_achievements);
 // router.get('/public_plans', ensureLoggedIn('/login'),   controller.public_plans);
@@ -37,13 +37,15 @@ router.get('/all_employees', ensureLoggedIn('/login'), swipeController.show_all_
 router.get('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.show_edit_employee);
 router.post('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.edit_employee);
 
+router.get('/view_emp_details/:id', ensureLoggedIn('/login'), swipeController.show_emp_details);
 
-router.get('/add_goal', ensureLoggedIn('/login'), controller.show_add_goal);
-router.post('/add_goal', ensureLoggedIn('/login'), controller.add_goal)
-router.get('/edit_goal/:id', ensureLoggedIn('/login'), controller.show_user_goal);
-router.post('/edit_goal/:id', ensureLoggedIn('/login'), controller.edit_goal);
-router.get('/delete_goal/:id', ensureLoggedIn('/login'), controller.post_delete_goal_home);
-router.get('/delete_goal_achievement/:id', ensureLoggedIn('/login'), controller.post_delete_goal_achievement);
+
+// router.get('/add_goal', ensureLoggedIn('/login'), controller.show_add_goal);
+// router.post('/add_goal', ensureLoggedIn('/login'), controller.add_goal)
+// router.get('/edit_goal/:id', ensureLoggedIn('/login'), controller.show_user_goal);
+// router.post('/edit_goal/:id', ensureLoggedIn('/login'), controller.edit_goal);
+// router.get('/delete_goal/:id', ensureLoggedIn('/login'), controller.post_delete_goal_home);
+// router.get('/delete_goal_achievement/:id', ensureLoggedIn('/login'), controller.post_delete_goal_achievement);
 // router.get('/delete_goal_planner/:id', ensureLoggedIn('/login'), controller.post_delete_goal_planner);  removed, page is now redundant.
 router.get('/complete_goal/:id', ensureLoggedIn('/login'), controller.complete_this_goal);
 // router.get('/share_goal/:id', ensureLoggedIn('/login'), controller.share_this_goal);
@@ -52,13 +54,13 @@ router.get('/complete_goal/:id', ensureLoggedIn('/login'), controller.complete_t
 // router.get('/contactUs', controller.contact_us_anon); //allow anon users to view the contact page
 // router.post('/contactUs', controller.post_new_anon_message); //allow anon members to post a new message
 // router.get('/messageSuccess', controller.message_success_anon); //allow anon users to view that their message has been sent.
-router.get('/publicPlans', controller.public_plans_anon); //allow anon users to view the public plans page.
+// router.get('/publicPlans', controller.public_plans_anon); //allow anon users to view the public plans page.
 // router.get('/about', ensureLoggedIn('/login'),  controller.about_us);
 // router.get('/contact', ensureLoggedIn('/login'),  controller.contact_us);
 // router.post('/contact',ensureLoggedIn('/login'),   controller.post_new_contactUs);
 // router.get('/message_success', ensureLoggedIn('/login'),  controller.message_success);
-router.get('/shared_plan/:id', ensureLoggedIn('/login'),  controller.get_shared_plan);
-router.post('/shared_plan/:id', ensureLoggedIn('/login'),  controller.add_shared_plan);
+// router.get('/shared_plan/:id', ensureLoggedIn('/login'),  controller.get_shared_plan);
+// router.post('/shared_plan/:id', ensureLoggedIn('/login'),  controller.add_shared_plan);
 
 //error handling - 404 page not found, and 500 internal server error
 router.use(function(req, res){

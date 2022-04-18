@@ -1,16 +1,3 @@
-// Name:        James Alexander Doak
-// Project:     Coursework 2 - WPD2
-// File:        index.js
-// Deadline:    17/03/2021 @ midnight.
-// Submitted:   {{ insert }}
-
-// Description: This is my coursework project for my Web Platform Development 2 module (M3I322955-20-B)
-//              which looks to see me implement a basic prototype of a personal fitness planner.
-
-// Begin index here -------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
 // import the express framework
     const express = require('express');
 // import the path module

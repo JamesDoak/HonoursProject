@@ -38,7 +38,7 @@ class SwipeLog{
                 SwipeStatus: 'Swipe OUT',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
-                AccessG: "Access GRANTED",
+                AccessG: "GRANTED",
                 isAllowed: true,
                 isPublic: true,
                 time: time
@@ -108,6 +108,21 @@ class SwipeLog{
         return new Promise((resolve, reject) => {
             this.db.find({'employeeName':user}).exec((err, data)=>{
                 data.sort((a, b) => b.time - a.time);
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(data)
+                }
+            })
+        })
+    }
+
+
+    getEmpSwipeData(id){
+        return new Promise((resolve, reject) => {
+            this.db.find({ 'UID': id}).exec((err, data)=>{
+                data.sort((a, b) => b.time - a.time);
+                console.log(data);
                 if(err){
                     reject(err);
                 }else{
