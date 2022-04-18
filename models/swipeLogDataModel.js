@@ -58,9 +58,9 @@ class SwipeLog{
         // var mm = today.getMonth() +1;
         var mm = String(today.getMonth() +1).padStart(2, '0');
         var yyyy = today.getFullYear();
-        var hours = String(today.getHours());
-        var mins = String(today.getMinutes());
-        var seconds = String(today.getSeconds());
+        var hours = String(today.getHours()).padStart(2, '0');
+        var mins = String(today.getMinutes()).padStart(2, '0');
+        var seconds = String(today.getSeconds()).padStart(2, '0');
         var time = today.getTime();
 
         
@@ -141,9 +141,9 @@ class SwipeLog{
             // var mm = today.getMonth() +1;
             var mm = String(today.getMonth() +1).padStart(2, '0');
             var yyyy = today.getFullYear();
-            var hours = String(today.getHours());
-            var mins = String(today.getMinutes());
-            var seconds = String(today.getSeconds());
+            var hours = String(today.getHours()).padStart(2, '0');
+            var mins = String(today.getMinutes()).padStart(2, '0');
+            var seconds = String(today.getSeconds()).padStart(2, '0');
             var time = today.getTime();
             
             today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;

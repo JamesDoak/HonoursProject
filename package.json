@@ -1,11 +1,11 @@
 {
   "name": "wpd2jamesdoak",
   "version": "1.0.0",
-  "description": "My web app for WDP2 by James Alexander Doak",
+  "description": "My web app for Honours Project by James Alexander Doak",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JamesDoak/WPD2-CW2"
+    "url": "https://github.com/JamesDoak/HonoursProject"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
