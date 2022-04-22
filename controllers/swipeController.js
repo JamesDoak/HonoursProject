@@ -6,6 +6,8 @@ const edb = new SwipeLog('employeeDB.db');
 
 //import the user model
 const uClass = require('../models/userModel');
+const {spawn} = require('child_process');
+
 
 ///////////////////////////////////////////////////////
 // INDEX //
@@ -59,6 +61,36 @@ exports.show_add_employee = function(req, res){
         'user' : req.user.user
     });
 }
+
+
+exports.show_swiped = function(req, res){
+
+    var dataToSend;
+    // spawn new child process to call the python script
+    const python = spawn('python3', ['hello.py']);
+    // collect data from script
+    python.stdout.on('data', function (data) {
+        console.log('Pipe data from python script ...');
+        console.log(data.toString());
+        dataToSend = String(data);
+        console.log(dataToSend);
+    });
+    
+    // in close event we are sure that stream from child process is closed
+    python.on('close', (code) => {
+        console.log(dataToSend);
+        console.log(`child process close all stdio with code ${code}`
+    );
+    // send data to browser
+    res.render('addEmployee', {
+        'title': dataToSend,
+        'data': dataToSend,
+        'background':'#E6E6FA',
+        'user' : req.user.user
+    })
+    });
+}
+
 
 exports.show_all_employees = function(req, res){
     

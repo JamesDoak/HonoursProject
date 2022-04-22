@@ -3,21 +3,7 @@
 <head>
 {{>header}}
 
-					<script type="text/javascript" charset="utf-8">
-                    function getUID() 
-                    {
-						fetch('/foo').then(function(response){
-						var resp = response;
-						console.log(resp);
-						var uidField = document.getElementById("eID");
 
-						// spawn python script here, return data.
-
-						uidField.value = response;
-						})
-
-                    }
-					</script>
 
 
 </head>
@@ -50,7 +36,9 @@
 			<br>
 			<br/>
 
-				<form name="myForm" method="post" onsubmit="return validateForm()">
+				<form name="myForm" method="post" 
+				
+				>
 
 						<label for="start">Employee Name</label><br />
 						<input type="text" id="empName" name="empName" maxlength="30" placeholder="Please enter an employee name" required><br/><br/>
@@ -59,9 +47,10 @@
 						<table>
 							<tbody>
 								<tr>
-									<td width="90%"><input type="text" id="eID" name="eID" maxlength="10" placeholder="Please enter the RFID card UID (10 chars in total)" required></td>
+									<td width="90%"><input type="text" id="eID" name="eID" maxlength="10" placeholder="Please enter the RFID card UID (10 chars in total)" value='{{data}}' required></td>
 									{{! <td width="10%"><button onclick="getUID()" type="btnReg" style="width: 150px" id="rgModalBtn">Get UID</button> </td> }}
-									<td width="10%"><button onclick="getUID()" type="btnReg" style="width: 150px" id="rgModalBtn">Get UID</button> </td>
+									{{! <td width="10%"><button onclick="getUID()" type="btnReg" style="width: 150px" id="rgModalBtn">Get UID</button> </td> }}
+									<td width="10%"><a id="btn" href="/add_employee/swiped" >getUID</a> </td>
 								</tr>
 							</tbody>
 						</table>
