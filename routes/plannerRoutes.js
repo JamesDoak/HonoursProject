@@ -35,10 +35,11 @@ router.get('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.show_
 router.post('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.edit_employee);
 router.get('/view_emp_details/:id', ensureLoggedIn('/login'), swipeController.show_emp_details);
 router.get('/add_employee', ensureLoggedIn('/login'), swipeController.show_add_employee);
-router.post('/add_employee', ensureLoggedIn('/login'), swipeController.add_employee)
+router.post('/add_employee', ensureLoggedIn('/login'), swipeController.add_employee);
 router.get('/all_employees', ensureLoggedIn('/login'), swipeController.show_all_employees);
 
 router.get('/add_employee/swiped', ensureLoggedIn('/login'), swipeController.show_swiped);
+router.post('/add_employee/swiped', ensureLoggedIn('/login'), swipeController.add_employee);
 
 // router.get('/foo', (req, res) => {
  
