@@ -1,4 +1,4 @@
-# WPD2-CW2
+<!-- # WPD2-CW2
 This repo has been created specifically to hold my Web Platform Development 2 coursework - Training Planner
 
 # Mission Statement
@@ -219,4 +219,4 @@ EditPlan View
         - A contact form for user messages.
         - Extensive custom CSS.
         - Users have an option in "Public Plans" to "Set this plan" directly, pulling the information into a new post.
-
+ -->
