@@ -174,7 +174,7 @@ exports.show_edit_employee = function (req, res) {
 exports.edit_employee = function(req, res){
     var user = req.user.user;
     edb.edit_employee(req.params.id, req.body.empName, req.body.eID, req.body.ePos, user);
-    res.redirect('/');
+    res.redirect('/all_employees');
 }
 
 

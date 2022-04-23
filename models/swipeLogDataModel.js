@@ -81,6 +81,8 @@ class SwipeLog{
         
     }
 
+
+
     // this.db.find({'employeeName':user}).sort({postedAt: -1}).limit(1).exec((err, data)=>{
     //     console.log(data[0]);
     //     if(err){

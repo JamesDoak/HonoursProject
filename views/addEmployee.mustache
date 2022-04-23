@@ -35,25 +35,25 @@
 		<div class="contactDiv">
 			<br>
 			<div class="innerDiv" align="center">
-			<br>
-			<br/>
 
 				<form name="myForm" method="post" >
 						<label for="error">{{err}}</label><br /><br/>
-						<label for="start">Employee Name</label><br />
-						<input type="text" id="empName" name="empName" maxlength="30" placeholder="Please enter an employee name" required><br/>
 
-						<label for="pName">Card UID</label>
+												<label for="pName">Card UID</label>
 						<table>
 							<tbody>
 								<tr>
 									<td width="90%"><input type="text" id="eID" name="eID" maxlength="12" placeholder="Please press the button 'Get UID' then place the card on the reader." value='{{data}}' required></td>
 									{{! <td width="10%"><button onclick="getUID()" type="btnReg" style="width: 150px" id="rgModalBtn">Get UID</button> </td> }}
 									{{! <td width="10%"><button onclick="getUID()" type="btnReg" style="width: 150px" id="rgModalBtn">Get UID</button> </td> }}
-									<td width="10%"><a id="btn" href="/add_employee/swiped" ><input name="btn" id="btn" type="getUID" style="width:250px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Get UID"></a> </td>
+									<td width="5%"><a id="btn" href="/add_employee/swiped" ><input name="btn" id="btn" type="getUID" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Get UID"></a> </td>
 								</tr>
 							</tbody>
 						</table>
+						<label for="start">Employee Name</label><br />
+						<input type="text" id="empName" name="empName" maxlength="30" placeholder="Please enter an employee name" required><br/>
+
+
 {{! 
 						<label for="pName">Card UID</label>
 						<input type="text" id="eID" name="eID" maxlength="10" placeholder="Please enter the RFID card UID (10 chars in total)" required> }}
