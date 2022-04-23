@@ -744,6 +744,24 @@ input[type=submit]:hover {
   font-weight:800;
 }
 
+input[type=getUID] {
+  width: 100px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10.4px 1px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight:800;
+  text-align: center;
+}
+
+input[type=getUID]:hover {
+  background-color: lightgreen;
+  color: black;
+  font-weight:800;
+}
+
 input[type=reset] {
   width: 44.5%;
   background-color: #4CAF50;

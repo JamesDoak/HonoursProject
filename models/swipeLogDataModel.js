@@ -289,6 +289,21 @@ class SwipeLog{
     
     }
 
+    getEmployeeByUID(uid){
+        return new Promise((resolve, reject) => {
+            this.db.find( { 'UID': uid} , function(err, entries){
+                console.log('UID: ', uid)
+                if (err){
+                reject(err);
+                 } else {
+            resolve(entries);
+            console.log('getEmployeeByUID() returns ', entries);
+                }   
+            })
+        })
+    
+    }
+
 
     edit_employee(id, empName, UID, ePos, user){
 

@@ -20,15 +20,17 @@
 
 
 <div class="wrapper" >
-		<br>
+    <br/>
+
+		{{! <br>
 		<div class="contactDiv">
 			<br>
-                    <h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;">Add a new employee
+                    <h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;"><i class="fa fa-user"></i>&nbsp;&nbsp;Add a new employee
                         <br>
                     </h2>
 			<br>
 		</div>
-        <br />
+        <br /> }}
 
 		<div class="contactDiv">
 			<br>
@@ -36,21 +38,19 @@
 			<br>
 			<br/>
 
-				<form name="myForm" method="post" 
-				
-				>
-
+				<form name="myForm" method="post" >
+						<label for="error">{{err}}</label><br /><br/>
 						<label for="start">Employee Name</label><br />
-						<input type="text" id="empName" name="empName" maxlength="30" placeholder="Please enter an employee name" required><br/><br/>
+						<input type="text" id="empName" name="empName" maxlength="30" placeholder="Please enter an employee name" required><br/>
 
 						<label for="pName">Card UID</label>
 						<table>
 							<tbody>
 								<tr>
-									<td width="90%"><input type="text" id="eID" name="eID" maxlength="10" placeholder="Please enter the RFID card UID (10 chars in total)" value='{{data}}' required></td>
+									<td width="90%"><input type="text" id="eID" name="eID" maxlength="12" placeholder="Please press the button 'Get UID' then place the card on the reader." value='{{data}}' required></td>
 									{{! <td width="10%"><button onclick="getUID()" type="btnReg" style="width: 150px" id="rgModalBtn">Get UID</button> </td> }}
 									{{! <td width="10%"><button onclick="getUID()" type="btnReg" style="width: 150px" id="rgModalBtn">Get UID</button> </td> }}
-									<td width="10%"><a id="btn" href="/add_employee/swiped" >getUID</a> </td>
+									<td width="10%"><a id="btn" href="/add_employee/swiped" ><input name="btn" id="btn" type="getUID" style="width:250px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Get UID"></a> </td>
 								</tr>
 							</tbody>
 						</table>

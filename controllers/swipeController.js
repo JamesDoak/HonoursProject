@@ -47,10 +47,32 @@ exports.add_second = function(req, res){
 
 exports.add_employee = function(req, res){
     //post add goal, enter values from screen
+
+    var passedUID = req.body.eID;
+    console.log("Passed UID: ", passedUID);
+
+    //check if user exists
+    edb.getEmployeeByUID(passedUID).then((entries) => {
+        //if exists, dont add user
+        if(entries.length > 0){
+            console.log("Sorry, employee exists");
+            res.render('addEmployee', {
+                'title': 'Add a new Employee',
+                'background':'#E6E6FA',
+                'user' : req.user.user,
+                'err' : 'Sorry, user exists'
+            });
+        }
+        //else, add user.
+        else{
+            console.log("Employee Added.");
+            edb.add_employee(req.body.empName, req.body.eID, req.body.ePos);
+            res.redirect('/');
+        }
+    })
+
    
-    console.log();
-    edb.add_employee(req.body.empName, req.body.eID, req.body.ePos);
-    res.redirect('/');
+
 
 }
 
