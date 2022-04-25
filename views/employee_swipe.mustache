@@ -25,6 +25,7 @@
 				<form name="myForm" method="post" onsubmit="return validateForm()">
 
 						{{#entries}}
+										                        <label>{{empError}}</label>
 
 
 						                       <div class="card">
@@ -32,16 +33,27 @@
                                                     <tbody>
 
                                                         <tr style="background-color:#4da374">
-                                                            <td style="width:33%;height:30px" colspan="3">
+                                                            <td style="width:33%;height:30px" colspan="2">
 																<label id="empNameL" name="empNameL" value="{{EmployeeName}}">Employee</label><br />
 																<input id="empName" name="empName" value="{{EmployeeName}}" type="text" style="text-align:center;" readonly>
 																
                                                             </td>
-                                                            <td style="width:33%;height:30px" colspan="3">
+                                                            <td style="width:33%;height:30px" colspan="2">
 																<label id="eIDL" name="eIDL" value="{{UID}}">UID</label><br />
 																<input id="eID" name="eID" value="{{UID}}" type="text" style="text-align:center;" readonly>
                                                             </td>
-
+															{{#isAllowed}}
+															<td style="width:33%;height:30px" colspan="2">
+																<label for="isAllowed">Access Granted</label>
+																<input type="checkbox" id="eAllowed" name="eAllowed" checked>
+                                                            </td>
+															{{/isAllowed}}
+															{{^isAllowed}}
+																<td style="width:33%;height:30px" colspan="2">
+																<label for="isAllowed">Access Granted</label>
+																<input type="checkbox" id="eAllowed" name="eAllowed">
+                                                            </td>
+															{{/isAllowed}}
                                                         </tr>
 
                                                     </tbody>

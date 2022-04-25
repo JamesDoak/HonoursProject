@@ -4,6 +4,8 @@
 {"employeeName":"James Doak","SwipeStatus":"Swipe IN","UID":"987CRJI289","SwipeTime":"2022-04-18  11:06:40","isAllowed":true,"isPublic":true,"time":1650276364434,"_id":"1B5T5Ap9YJ9vjOhP"}
 {"employeeName":"James Doak","SwipeStatus":"Swipe IN","UID":"987CRJI289","SwipeTime":"2022-04-17  18:27:19","isAllowed":true,"isPublic":true,"time":1650216439682,"_id":"1oZn5JhV0PumxjeV"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe IN","UID":"987CRJWFW39","SwipeTime":"2022-04-25  13:17:12","isAllowed":true,"isPublic":true,"time":1650889032403,"_id":"2WgUZZKMJhIGAMs1"}
+{"employeeName":"Tom Jones3","SwipeStatus":"Swipe IN","UID":"KLNERG23","SwipeTime":"2022-04-25  16:08:39","isAllowed":true,"isPublic":true,"time":1650899319097,"_id":"2h2hVjvBzhbIHmys"}
+{"employeeName":"135135","SwipeStatus":"Swipe IN","UID":"909284743233","SwipeTime":"2022-04-25  16:04:47","isAllowed":true,"isPublic":true,"time":1650899087669,"_id":"4Z0lEUDjB0R5hxi7"}
 {"employeeName":"Unknown","SwipeStatus":"Swipe IN","UID":"SDVL28439D","SwipeTime":"2022-04-18  11:07:43","AccessG":"REFUSED","isAllowed":false,"isPublic":true,"time":1650276463079,"_id":"4bJgrwo9hZia3JiN"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe OUT","UID":"987CRJWFW39","SwipeTime":"2022-04-18  11:07:45","isAllowed":true,"isPublic":true,"time":1650276465504,"_id":"4kTkwtz5vVjrASiu"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe IN","UID":"987CRJWFW39","SwipeTime":"2022-04-25  13:50:36","isAllowed":true,"isPublic":true,"time":1650891036124,"_id":"51ghFQWG4mmG37qZ"}
@@ -20,6 +22,7 @@
 {"employeeName":"Unknown","SwipeStatus":"Swipe IN","UID":"SDVL28439D","SwipeTime":"2022-04-18  11:39:05","AccessG":"REFUSED","isAllowed":false,"isPublic":true,"time":1650278345221,"_id":"CM2qGZOM3eklXE6j"}
 {"employeeName":"Unknown","SwipeStatus":"Swipe IN","UID":"SDVL28439D","SwipeTime":"2022-04-18  11:06:40","AccessG":"REFUSED","isAllowed":false,"isPublic":true,"time":1650276364434,"_id":"CTaTGHx6o0rtPb9R"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe OUT","UID":"987CRJWFW39","SwipeTime":"2022-04-18  13:27:19","isAllowed":true,"isPublic":true,"time":1650284839884,"_id":"DTzjeThE4vKjFgjF"}
+{"employeeName":"qwefqwefqwef","SwipeStatus":"Swipe IN","UID":"9992847439","SwipeTime":"2022-04-25  15:53:47","isAllowed":true,"isPublic":true,"time":1650898427794,"_id":"DyqN5tgeVCvDr5Fa"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe IN","UID":"987CRJWFW39","SwipeTime":"2022-04-23  18:26:19","isAllowed":true,"isPublic":true,"time":1650734779406,"_id":"FMtTwlqrJkjD7aQ5"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe OUT","UID":"987CRJWFW39","SwipeTime":"2022-04-25  14:37:50","isAllowed":true,"isPublic":true,"time":1650893870448,"_id":"FsY7ARzhi430mcLG"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe IN","UID":"987CRJWFW39","SwipeTime":"2022-04-18  13:27:22","isAllowed":true,"isPublic":true,"time":1650284842221,"_id":"GGWNn9T63LovEqWO"}
@@ -120,6 +123,7 @@
 {"employeeName":"Granted User","SwipeStatus":"Swipe OUT","UID":"987CRJWFW39","SwipeTime":"2022-04-17  19:51:38","isAllowed":true,"isPublic":true,"time":1650221498191,"_id":"sWzE5n7JFY0Jwn3c"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe IN","UID":"987CRJWFW39","SwipeTime":"2022-04-18  10:35:56","isAllowed":true,"isPublic":true,"time":1650274556118,"_id":"sZVepM8ZvPvIej42"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe OUT","UID":"987CRJWFW39","SwipeTime":"2022-04-25  14:37:50","isAllowed":true,"isPublic":true,"time":1650893870256,"_id":"tJ2mPpvHoYPGg7do"}
+{"employeeName":"135135","SwipeStatus":"Swipe IN","UID":"909284743233","SwipeTime":"2022-04-25  16:08:32","isAllowed":true,"isPublic":true,"time":1650899312329,"_id":"tnw4CLayKC9lIN1c"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe IN","UID":"987CRJWFW39","SwipeTime":"2022-04-17  18:28:52","isAllowed":true,"isPublic":true,"time":1650216532075,"_id":"uKz7b5zF3lM1wcXL"}
 {"employeeName":"Tom Jones EDIT","SwipeStatus":"Swipe IN","UID":"KLNERG23","SwipeTime":"2022-04-17  18:28:52","isAllowed":true,"isPublic":true,"time":1650216532075,"_id":"uKz7b5zF3lM1wdXL"}
 {"employeeName":"Tom Jones EDIT","SwipeStatus":"Swipe OUT","UID":"KLNERG23","SwipeTime":"2022-04-17  18:35:52","isAllowed":true,"isPublic":true,"time":1650216532077,"_id":"uKz7b5zF3lM1wzXL"}
@@ -127,4 +131,4 @@
 {"employeeName":"Granted User","SwipeStatus":"Swipe IN","UID":"987CRJWFW39","SwipeTime":"2022-04-18  11:07:47","isAllowed":true,"isPublic":true,"time":1650276467934,"_id":"wvmXarU8Yd72he3F"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe IN","UID":"987CRJWFW39","SwipeTime":"2022-04-25  14:18:20","isAllowed":true,"isPublic":true,"time":1650892700901,"_id":"yIkfXV00JHhxmc5H"}
 {"employeeName":"Granted User","SwipeStatus":"Swipe OUT","UID":"987CRJWFW39","SwipeTime":"2022-04-18  11:07:46","isAllowed":true,"isPublic":true,"time":1650276466118,"_id":"zVrPNGrGpBqQi5KK"}
-{"employeeName":"qwefqwefqwef","SwipeStatus":"Swipe IN","UID":"9992847439","SwipeTime":"2022-04-25  15:53:47","isAllowed":true,"isPublic":true,"time":1650898427794,"_id":"DyqN5tgeVCvDr5Fa"}
+{"employeeName":"135135","SwipeStatus":"Swipe IN","UID":"909284743233","SwipeTime":"2022-04-25  16:16:28","isAllowed":true,"isPublic":true,"time":1650899788743,"_id":"AIyaUGuzaiiKXxd5"}
