@@ -19,8 +19,8 @@
                             <tbody>
                             <tr>
                                 <td width="33%"><a style="text-decoration:underline;" type="button" href="/seed">Seed with data</a></td>
-                                <td width="33%"><a style="text-decoration:underline;" type="button" href="/addGranted">Add valid IN swipe</a></td>
-                                <td width="33%"><a style="text-decoration:underline;" type="button" href="/addSecondSwipe">Add valid OUT swipe</a></td>
+                                <td width="33%"><a style="text-decoration:underline;" type="button" href="/addGranted">Add GRANTED swipe</a></td>
+                                <td width="33%"><a style="text-decoration:underline;" type="button" href="/addSecondSwipe">Add REVOKED swipe</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -41,7 +41,7 @@
     <textarea readonly>
     
 {{#allData }}
-{{SwipeTime}}  -  {{SwipeStatus}}        |  Name:{{employeeName}}  |  ID:{{UID}}  |   {{AccessG}}
+{{SwipeTime}}  -  {{SwipeStatus}}     |  ID:    {{UID}}     |  Name:         {{employeeName}}  |   
 {{/allData}}
     </textarea>
 </div>

@@ -192,11 +192,14 @@ exports.add_swipe = function(req, res){
         res.redirect('/');
     }
     else if(isAllowed == false){
-        res.render('500', {
-            'title': 'Revoked',
-            'empError':'Permission to swipe DENIED - Employee privileges have been revoked.',
-            'user' : req.user.user
-        });
+
+        db.add_revoked_entry(req.params.id, req.body.empName, req.body.eID, user);
+        res.redirect('/');
+        // res.render('500', {
+        //     'title': 'Revoked',
+        //     'empError':'Permission to swipe DENIED - Employee privileges have been revoked.',
+        //     'user' : req.user.user
+        // });
     }
 
 

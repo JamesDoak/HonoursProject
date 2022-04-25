@@ -36,12 +36,41 @@ class SwipeLog{
 
         this.db.insert({
             employeeName: eName,
-            SwipeStatus: 'Swipe IN',
+            SwipeStatus: 'GRANTED',
             UID: uid,
             SwipeTime: today,
             isAllowed: true,
             isPublic: true,
             time: time
+
+        })
+        console.log('New swipe entry for '+eName+ ' entered into the db.')
+    }
+
+    add_revoked_entry(_id, eName,eUID){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        // var mm = today.getMonth() +1;
+        var mm = String(today.getMonth() +1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var hours = String(today.getHours()).padStart(2, '0');
+        var mins = String(today.getMinutes()).padStart(2, '0');
+        var seconds = String(today.getSeconds()).padStart(2, '0');
+        var time = today.getTime();
+        var uid = eUID;
+        var name = eName;
+
+        
+        today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
+
+        this.db.insert({
+            employeeName: eName,
+            SwipeStatus: 'REVOKED SWIPE',
+            UID: uid,
+            SwipeTime: today,
+            isAllowed: false,
+            time: time,
+            access: 'REVOKED SWIPE'
 
         })
         console.log('New swipe entry for '+eName+ ' entered into the db.')
@@ -63,15 +92,15 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'Granted User',
-                SwipeStatus: 'Swipe OUT',
+                SwipeStatus: 'REVOKED SWIPE',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
-                isAllowed: true,
+                isAllowed: false,
                 isPublic: true,
                 time: time
     
             })
-            console.log('New swipe entry for Granted User entered into the db.')
+            console.log('New revoked swipe entry for Granted User entered into the db.')
         
         
     }
@@ -107,7 +136,7 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'Granted User',
-                SwipeStatus: 'Swipe IN',
+                SwipeStatus: 'GRANTED',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
                 isAllowed: true,
@@ -191,7 +220,7 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'James Doak',
-                SwipeStatus: 'Swipe IN',
+                SwipeStatus: 'GRANTED',
                 UID: '987CRJI289',
                 SwipeTime: today,
                 isAllowed: true,
@@ -203,7 +232,7 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'Granted User',
-                SwipeStatus: 'Swipe IN',
+                SwipeStatus: 'GRANTED',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
                 isAllowed: true,
@@ -215,7 +244,7 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'Unknown',
-                SwipeStatus: 'Swipe IN',
+                SwipeStatus: 'REVOKED',
                 UID: 'SDVL28439D',
                 SwipeTime: today,
                 isAllowed: false,
@@ -227,7 +256,7 @@ class SwipeLog{
 
             this.db.insert({
                 employeeName: 'Jack Black',
-                SwipeStatus: 'Swipe IN',
+                SwipeStatus: 'GRANTED',
                 UID: 'EVE20984DV',
                 SwipeTime: today,
                 isAllowed: true,
