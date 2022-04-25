@@ -45,6 +45,15 @@ exports.add_second = function(req, res){
     res.redirect('/');
 }
 
+// exports.add_user_swipe = function(req, res){
+//     //post add goal, enter values from screen
+   
+//     console.log();
+//     db.add_user_swipe(req.body.pUID);
+//     res.redirect('/');
+
+// }
+
 exports.add_employee = function(req, res){
     //post add goal, enter values from screen
 
@@ -146,9 +155,12 @@ exports.show_emp_details = function (req, res) {
     db.getEmpSwipeData(UID).then((entries) => {
         res.render('show_emp_det', {
             'title': 'Employee Swipe Log',
+            'uid' : UID,
             'entries' : entries,
-            'user' : req.user.user
+            'user' : req.user.user,
+
         });
+        console.log(edb.getEmpNameByUID);
     }).catch((err) => {
         console.log('error handling employee', err);
     });
@@ -173,7 +185,7 @@ exports.show_edit_employee = function (req, res) {
 
 exports.edit_employee = function(req, res){
     var user = req.user.user;
-    edb.edit_employee(req.params.id, req.body.empName, req.body.eID, req.body.ePos, user);
+    edb.edit_employee(req.params.id, req.body.empName, req.body.eID, req.body.ePos, Boolean(req.body.eAllowed), user);
     res.redirect('/all_employees');
 }
 

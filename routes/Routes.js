@@ -34,6 +34,7 @@ router.get('/addSecondSwipe', ensureLoggedIn('/login'), swipeController.add_seco
 router.get('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.show_edit_employee);
 router.post('/edit_employee/:id', ensureLoggedIn('/login'), swipeController.edit_employee);
 router.get('/view_emp_details/:id', ensureLoggedIn('/login'), swipeController.show_emp_details);
+// router.get('/addUserSwipe', ensureLoggedIn('/login'), swipeController.add_user_swipe);
 router.get('/add_employee', ensureLoggedIn('/login'), swipeController.show_add_employee);
 router.post('/add_employee', ensureLoggedIn('/login'), swipeController.add_employee);
 router.get('/all_employees', ensureLoggedIn('/login'), swipeController.show_all_employees);

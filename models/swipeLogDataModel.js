@@ -18,6 +18,33 @@ class SwipeLog{
     }
 
 
+    // add_user_swipe(eUID){
+    //     var today = new Date();
+    //     var dd = String(today.getDate()).padStart(2, '0');
+    //     // var mm = today.getMonth() +1;
+    //     var mm = String(today.getMonth() +1).padStart(2, '0');
+    //     var yyyy = today.getFullYear();
+    //     var hours = String(today.getHours()).padStart(2, '0');
+    //     var mins = String(today.getMinutes()).padStart(2, '0');
+    //     var seconds = String(today.getSeconds()).padStart(2, '0');
+    //     var time = today.getTime();
+    //     var uid = eUID;
+
+        
+    //     today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
+
+    //     this.db.insert({
+    //         employeeName: 'test',
+    //         SwipeStatus: 'Swipe IN',
+    //         UID: uid,
+    //         SwipeTime: today,
+    //         isAllowed: true,
+    //         isPublic: true,
+    //         time: time
+
+    //     })
+    //     console.log('New swipe entry for x entered into the db.')
+    // }
 
     addSecondSwipe(){
         var today = new Date();
@@ -38,7 +65,6 @@ class SwipeLog{
                 SwipeStatus: 'Swipe OUT',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
-                AccessG: "GRANTED",
                 isAllowed: true,
                 isPublic: true,
                 time: time
@@ -46,10 +72,22 @@ class SwipeLog{
             })
             console.log('New swipe entry for Granted User entered into the db.')
         
-
-
-
         
+    }
+
+    getEmpNameById(id){
+        return new Promise((resolve, reject) => {
+            this.edb.find( { 'UID': id} , function(err, entries){
+                console.log('UID: ', id)
+                if (err){
+                reject(err);
+                 } else {
+            resolve(entries);
+            console.log('getEmpByID() returns ', entries);
+                }   
+            })
+        })
+    
     }
 
     addGranted(){
@@ -71,7 +109,6 @@ class SwipeLog{
                 SwipeStatus: 'Swipe IN',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
-                AccessG: "GRANTED",
                 isAllowed: true,
                 isPublic: true,
                 time: time
@@ -156,7 +193,6 @@ class SwipeLog{
                 SwipeStatus: 'Swipe IN',
                 UID: '987CRJI289',
                 SwipeTime: today,
-                AccessG: "GRANTED",
                 isAllowed: true,
                 isPublic: true,
                 time: time
@@ -169,7 +205,6 @@ class SwipeLog{
                 SwipeStatus: 'Swipe IN',
                 UID: '987CRJWFW39',
                 SwipeTime: today,
-                AccessG: "GRANTED",
                 isAllowed: true,
                 isPublic: true,
                 time: time
@@ -182,7 +217,6 @@ class SwipeLog{
                 SwipeStatus: 'Swipe IN',
                 UID: 'SDVL28439D',
                 SwipeTime: today,
-                AccessG: "REFUSED",
                 isAllowed: false,
                 isPublic: true,
                 time: time
@@ -195,7 +229,6 @@ class SwipeLog{
                 SwipeStatus: 'Swipe IN',
                 UID: 'EVE20984DV',
                 SwipeTime: today,
-                AccessG: "GRANTED",
                 isAllowed: true,
                 isPublic: true,
                 time: time
@@ -307,13 +340,18 @@ class SwipeLog{
     }
 
 
-    edit_employee(id, empName, UID, ePos, user){
+    edit_employee(id, empName, UID, ePos, eAllowed, user){
 
-        this.db.update({_id : id}, 
+        var isAllowed = eAllowed.toString();
+        console.log(isAllowed.toString());
+        console.log('IsAllowed: ',eAllowed);
+        if(isAllowed == 'false'){
+            this.db.update({_id : id}, 
                 { $set: 
                     {   'EmployeeName' : empName,
                     'UID' : UID,
-                    'Position' : ePos
+                    'Position' : ePos,
+                    'isAllowed' : false
                 }
             }, {}, function(err, numUp){
             if(err){
@@ -322,6 +360,24 @@ class SwipeLog{
                 console.log(numUp, 'Document updated');
             }
         })
+        }
+        else if(isAllowed == 'true'){
+            this.db.update({_id : id}, 
+                { $set: 
+                    {   'EmployeeName' : empName,
+                    'UID' : UID,
+                    'Position' : ePos,
+                    'isAllowed' : true
+                }
+            }, {}, function(err, numUp){
+            if(err){
+                console.log('error updating document', err);
+            } else {
+                console.log(numUp, 'Document updated');
+            }
+        })
+        }
+
 }
 
 }

@@ -58,7 +58,7 @@ app.set('view engine', 'mustache');
 app.use(express.static(public));
 
 //import the new router and map it to all requests
-const router = require('./routes/plannerRoutes');
+const router = require('./routes/Routes');
 const { authenticate } = require('passport');
 app.use('/', router);
 
