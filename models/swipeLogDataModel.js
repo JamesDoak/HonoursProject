@@ -18,33 +18,34 @@ class SwipeLog{
     }
 
 
-    // add_user_swipe(eUID){
-    //     var today = new Date();
-    //     var dd = String(today.getDate()).padStart(2, '0');
-    //     // var mm = today.getMonth() +1;
-    //     var mm = String(today.getMonth() +1).padStart(2, '0');
-    //     var yyyy = today.getFullYear();
-    //     var hours = String(today.getHours()).padStart(2, '0');
-    //     var mins = String(today.getMinutes()).padStart(2, '0');
-    //     var seconds = String(today.getSeconds()).padStart(2, '0');
-    //     var time = today.getTime();
-    //     var uid = eUID;
+    add_user_swipe(_id, eName,eUID){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        // var mm = today.getMonth() +1;
+        var mm = String(today.getMonth() +1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var hours = String(today.getHours()).padStart(2, '0');
+        var mins = String(today.getMinutes()).padStart(2, '0');
+        var seconds = String(today.getSeconds()).padStart(2, '0');
+        var time = today.getTime();
+        var uid = eUID;
+        var name = eName;
 
         
-    //     today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
+        today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
 
-    //     this.db.insert({
-    //         employeeName: 'test',
-    //         SwipeStatus: 'Swipe IN',
-    //         UID: uid,
-    //         SwipeTime: today,
-    //         isAllowed: true,
-    //         isPublic: true,
-    //         time: time
+        this.db.insert({
+            employeeName: eName,
+            SwipeStatus: 'Swipe IN',
+            UID: uid,
+            SwipeTime: today,
+            isAllowed: true,
+            isPublic: true,
+            time: time
 
-    //     })
-    //     console.log('New swipe entry for x entered into the db.')
-    // }
+        })
+        console.log('New swipe entry for '+eName+ ' entered into the db.')
+    }
 
     addSecondSwipe(){
         var today = new Date();

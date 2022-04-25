@@ -167,6 +167,29 @@ exports.show_emp_details = function (req, res) {
 }
 
 
+exports.show_add_employee_swipe = function (req, res) {
+    console.log('filtering employee_id', req.params.id);
+
+    let employeeID = req.params.id;
+    edb.getEmployeeById(employeeID).then((entries) => {
+        res.render('employee_swipe', {
+            'title': 'employee swipe',
+            'entries' : entries,
+            'user' : req.user.user
+        });
+    }).catch((err) => {
+        console.log('error handling employee', err);
+    });
+}
+
+
+exports.add_swipe = function(req, res){
+    var user = req.user.user;
+    db.add_user_swipe(req.params.id, req.body.empName, req.body.eID, user);
+    res.redirect('/');
+}
+
+
 exports.show_edit_employee = function (req, res) {
     console.log('filtering employee_id', req.params.id);
 
@@ -188,7 +211,6 @@ exports.edit_employee = function(req, res){
     edb.edit_employee(req.params.id, req.body.empName, req.body.eID, req.body.ePos, Boolean(req.body.eAllowed), user);
     res.redirect('/all_employees');
 }
-
 
 
 ///////////////////////////////////////////////////////

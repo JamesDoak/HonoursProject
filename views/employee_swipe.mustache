@@ -1,0 +1,85 @@
+
+<html>
+<head>
+{{>header}}
+</head>
+
+<body>
+<br>
+<!--<div class="wrapper" style="background:{{background}}"> - use this to set white background again-->
+<div class="wrapper" >
+		<br>
+		<div class="contactDiv">
+			<br>
+                    <h2 class="innerDiv" align="center" style="text-shadow: 1px 1px #000000;">Edit Employee
+                        <br>
+                    </h2>
+			<br>
+		</div>
+        <br />
+
+		<div class="contactDiv">
+			<br>
+			<div class="innerDiv" align="center">
+			<br>
+				<form name="myForm" method="post" onsubmit="return validateForm()">
+
+						{{#entries}}
+
+
+						                       <div class="card">
+                                                <table style="color:white;text-align:center; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+                                                    <tbody>
+
+                                                        <tr style="background-color:#4da374">
+                                                            <td style="width:33%;height:30px" colspan="3">
+																<label id="empNameL" name="empNameL" value="{{EmployeeName}}">Employee</label><br />
+																<input id="empName" name="empName" value="{{EmployeeName}}" type="text" style="text-align:center;" readonly>
+																
+                                                            </td>
+                                                            <td style="width:33%;height:30px" colspan="3">
+																<label id="eIDL" name="eIDL" value="{{UID}}">UID</label><br />
+																<input id="eID" name="eID" value="{{UID}}" type="text" style="text-align:center;" readonly>
+                                                            </td>
+
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div><br/>
+										<br /><br/>
+							
+								<input name="reset" id="btn" type="reset" style="width:250px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" value="Reset">
+						    	<form method="get" action="/add_employee_swipe/{{UID}}">
+										<button type="submit" id="regBtn" style="width:250px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                      	Add Swipe </button> <!-- on click should run register(); -->
+								</form>
+							<br><br>
+
+							
+						{{/entries}}
+
+						<br><br>
+				</form>
+                <br />
+			</div>
+		</div>
+
+		<br>
+
+
+    <footer>
+        {{>footer}}
+		
+		<script src="/edit_goal_functions.js"></script>
+    </footer>
+</div>
+	
+
+
+</body>
+</html>
+
+
+
+
