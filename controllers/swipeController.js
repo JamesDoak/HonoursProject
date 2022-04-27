@@ -5,7 +5,6 @@ const db = new SwipeLog('swipeLogDetails.db');
 const edb = new SwipeLog('employeeDB.db');
 
 //import the user model
-// const uClass = require('../models/userModel');
 const {spawn} = require('child_process');
 
 
@@ -45,15 +44,6 @@ exports.add_second = function(req, res){
     res.redirect('/');
 }
 
-// exports.add_user_swipe = function(req, res){
-//     //post add goal, enter values from screen
-   
-//     console.log();
-//     db.add_user_swipe(req.body.pUID);
-//     res.redirect('/');
-
-// }
-
 exports.add_employee = function(req, res){
     //post add goal, enter values from screen
 
@@ -79,10 +69,6 @@ exports.add_employee = function(req, res){
             res.redirect('/');
         }
     })
-
-   
-
-
 }
 
 exports.show_add_employee = function(req, res){

@@ -8,5 +8,3 @@ function myFunction() {
     x.className = "topnav";
   }
 }
-
-//Author: James Doak / Anthony Lockhart - Group 23

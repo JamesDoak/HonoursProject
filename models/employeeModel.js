@@ -41,13 +41,6 @@ class EmployeeClass{
     }//end init
 
 
-    // need to search the employee db
-    // find the employee
-    // pull out status
-
-    // need to search the swipe log, look for users most recent entry - add all entries to an Array, use index 0
-    // if index 0 == in, change to out
-
 
 }
 
