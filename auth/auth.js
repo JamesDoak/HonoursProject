@@ -13,8 +13,6 @@ exports.init = function(app){
     // setup password
             passport.use(new Strategy(
 
-                //may need to change -- username -- to user.
-
 
                 function(username, password, cb) { // cb is callback
                 userModel.lookup(username, function(err, user) {

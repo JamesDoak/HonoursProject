@@ -46,20 +46,15 @@ exports.add_second = function(req, res){
 
 exports.add_employee = function(req, res){
     //post add goal, enter values from screen
-
     var passedUID = req.body.eID;
     console.log("Passed UID: ", passedUID);
-
     //check if user exists
     edb.getEmployeeByUID(passedUID).then((entries) => {
         //if exists, dont add user
         if(entries.length > 0){
             console.log("Sorry, employee exists");
             res.render('addEmployee', {
-                'title': 'Add a new Employee',
-                'background':'#E6E6FA',
-                'user' : req.user.user,
-                'err' : 'Sorry, user exists'
+                'title': 'Add a new Employee','background':'#E6E6FA','user' : req.user.user,'err' : 'Sorry, this employee already exists.'
             });
         }
         //else, add user.
@@ -81,10 +76,9 @@ exports.show_add_employee = function(req, res){
 
 
 exports.show_swiped = function(req, res){
-
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python3', ['hello.py']);
+    const python = spawn('python3', ['Hello.py']);
     // collect data from script
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');
@@ -92,7 +86,6 @@ exports.show_swiped = function(req, res){
         dataToSend = String(data);
         console.log(dataToSend);
     });
-    
     // in close event we are sure that stream from child process is closed
     python.on('close', (code) => {
         console.log(dataToSend);
@@ -181,15 +174,7 @@ exports.add_swipe = function(req, res){
 
         db.add_revoked_entry(req.params.id, req.body.empName, req.body.eID, user);
         res.redirect('/');
-        // res.render('500', {
-        //     'title': 'Revoked',
-        //     'empError':'Permission to swipe DENIED - Employee privileges have been revoked.',
-        //     'user' : req.user.user
-        // });
     }
-
-
-
 }
 
 

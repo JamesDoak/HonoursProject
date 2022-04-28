@@ -21,7 +21,6 @@ class SwipeLog{
     add_user_swipe(_id, eName,eUID){
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
-        // var mm = today.getMonth() +1;
         var mm = String(today.getMonth() +1).padStart(2, '0');
         var yyyy = today.getFullYear();
         var hours = String(today.getHours()).padStart(2, '0');
@@ -29,21 +28,8 @@ class SwipeLog{
         var seconds = String(today.getSeconds()).padStart(2, '0');
         var time = today.getTime();
         var uid = eUID;
-        var name = eName;
-
-        
         today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
-
-        this.db.insert({
-            employeeName: eName,
-            SwipeStatus: 'GRANTED',
-            UID: uid,
-            SwipeTime: today,
-            isAllowed: true,
-            isPublic: true,
-            time: time
-
-        })
+        this.db.insert({employeeName: eName,SwipeStatus: 'GRANTED',UID: uid,SwipeTime: today,isAllowed: true,isPublic: true,time: time})
         console.log('New swipe entry for '+eName+ ' entered into the db.')
     }
 
@@ -286,41 +272,19 @@ class SwipeLog{
 
 
     add_employee(name, uid, position){
-
-        //need to pass in the plan name, and new exercises/reps - plName, ex2, rep2, ex3, rep3
-
-        //get the week number of the passed in date
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
-        // var mm = today.getMonth() +1;
         var mm = String(today.getMonth() +1).padStart(2, '0');
         var yyyy = today.getFullYear();
         var hours = String(today.getHours());
         var mins = String(today.getMinutes()).padStart(2, '0');
         var seconds = String(today.getSeconds()).padStart(2, '0');
-        var time = today.getTime();
-        
         today = yyyy + '-' + mm + '-' + dd + "  " + hours + ":" + mins + ":" + seconds;
-
         //create a new plan
-        var newEmployee = 
-        {
-            EmployeeName: name,
-            UID: uid,
-            Position: position,
-            dateJoined: today,
-            isAllowed: true
-        }
-        console.log('New Employee: ', newEmployee);
-        
+        var newEmployee = {EmployeeName: name, UID: uid, Position: position, dateJoined: today, isAllowed: true}
         this.db.insert(newEmployee, function(err, doc){
-            if(err){
-                console.log("500", fname);
-            } else {
-                console.log('New employee inserted', doc);
-            }
-        })
-        
+            if(err){ console.log("500", fname);} 
+            else { console.log('New employee inserted', doc); }})
     }
 
 
@@ -377,38 +341,21 @@ class SwipeLog{
         console.log('IsAllowed: ',eAllowed);
         if(isAllowed == 'false'){
             this.db.update({_id : id}, 
-                { $set: 
-                    {   'EmployeeName' : empName,
-                    'UID' : UID,
-                    'Position' : ePos,
-                    'isAllowed' : false
-                }
-            }, {}, function(err, numUp){
+                { $set: { 'EmployeeName' : empName,'UID' : UID,'Position' : ePos,'isAllowed' : false }}, 
+                {}, function(err, numUp){
             if(err){
                 console.log('error updating document', err);
-            } else {
-                console.log(numUp, 'Document updated');
-            }
-        })
+            } else {console.log(numUp, 'Document updated');}})
         }
         else if(isAllowed == 'true'){
             this.db.update({_id : id}, 
-                { $set: 
-                    {   'EmployeeName' : empName,
-                    'UID' : UID,
-                    'Position' : ePos,
-                    'isAllowed' : true
-                }
-            }, {}, function(err, numUp){
+                { $set: {   'EmployeeName' : empName,'UID' : UID,'Position' : ePos,'isAllowed' : true}}, 
+                {}, function(err, numUp){
             if(err){
                 console.log('error updating document', err);
-            } else {
-                console.log(numUp, 'Document updated');
-            }
-        })
+            } else { console.log(numUp, 'Document updated');}})
         }
-
-}
+    }
 
 }
 
